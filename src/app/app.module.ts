@@ -21,7 +21,8 @@ export const firebaseConfig = {
 };
 
 const appRoutes: Routes = [
-  {path:'', component: TestComponent},
+  // {path:'', component: TestComponent},
+  {path:'', component: SigninComponent},
   {path: 'register', component: SigninComponent},
 ]
 
