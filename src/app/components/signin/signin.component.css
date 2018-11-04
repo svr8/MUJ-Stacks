@@ -1,0 +1,269 @@
+/* 
+  RADIO BUTTONS UI COPIED FROM: https://codepen.io/AngelaVelasquez/pen/Eypnq
+ */
+
+@font-face
+{
+  font-family: DefaultFont;
+  src: url('../../../assets/fonts/KoHo-Regular.ttf');
+}
+/* PARTITIONS */
+body {
+  position: relative;
+}
+.register-wrap {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  overflow: hidden;
+  
+}
+
+.register-block {
+  float: left;
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+#register-cover {
+  background: #BC4052;
+}
+#register-content {
+  background: #443E57;
+}
+
+/* TOGGLE BUTTONS  */
+.register-toggle-wrap {
+  position: relative;
+  top: 10%;
+  left: 65%;
+  width: 15vw;
+  height: 1vh;
+
+  min-width: 130px;
+  min-height: 25px; 
+
+  background: #70688D;
+  border-radius: 12px;
+  overflow: hidden;
+
+  z-index: 0;
+}
+.register-toggle-wrap:hover {
+  cursor: pointer;
+}
+
+#register-toggle-select {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 100%;
+  background: #BC4052;
+
+  z-index: 1;
+}
+
+.register-toggle-button {
+  position: relative;
+  height: 100%;
+  width: 50%;
+
+  padding-top: 1px;
+  text-align: center;
+  vertical-align: middle;
+
+  user-select: none;
+  font-family: DefaultFont;
+
+  z-index: 2;
+  transition: 0.3s;
+}
+.register-toggle-button-select {
+  color: white;
+}
+
+#register-toggle-signin {
+  float: left;
+}
+#register-toggle-signup {
+  float: right
+}
+.register-form-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.register-form-content ul li {
+  color: #AAAAAA;
+  position: relative;
+  float: left;
+  width: 35%;
+  height: 70px;
+}
+
+.register-form-content ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+
+.register-form-content ul li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 2.5vh;
+  font-family: DefaultFont;
+  padding: 22px 25px 20px 60px;
+  margin: 10px auto;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+#register-form-signup ul li:nth-child(2) {
+  margin-left: 15px;
+}
+
+.register-form-content ul li:hover label{
+	color: #FFFFFF;
+}
+
+.register-form-content ul li .check{
+  display: block;
+  position: absolute;
+  border: 5px solid #AAAAAA;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  top: 30px;
+  left: 20px;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+}
+
+.register-form-content ul li:hover .check {
+  border: 5px solid #FFFFFF;
+}
+
+
+.register-form-content input[type=radio]:checked ~ .check {
+  border: 5px solid #FFFFFF;
+}
+
+.register-form-content input[type=radio]:checked ~ label{
+  color: #FFFFFF;
+}
+
+@media only screen and (max-width: 600px) {
+  #register-cover {
+      display: none;
+  }
+  #register-content {
+    width: 100%;
+  }
+  .register-toggle-wrap {
+    width: 30vw;
+  }
+}
+
+/* FORM */
+
+/* #label_accountType {
+  color: white;
+  font-family: DefaultFont;
+  font-size: 3vh;
+  width: 100%;
+  justify-content: left;
+  margin-left: 18%;
+  margin-top: 20px;
+  margin-bottom: -10px; */
+/* } */
+
+#register-form-wrap {
+  position: relative;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+
+  /* background: #70688D; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.v-item {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+  margin-top: 10px;
+ 
+}
+
+#register-form-wrap .inputField {
+  color: white;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+
+  font-family: DefaultFont;
+  font-size: 3vh;
+
+  padding: 10px;
+  padding-left: 5px;
+}
+.register-form-content {
+  display: none;
+}
+.register-form-content:nth-child(1) {
+  display: block;
+}
+.register-form-content-show {
+  display: block;
+}
+
+#register-form-wrap .submitBtn  {
+  padding: 2px 15px 5px 15px;
+  margin-top: 4vh;
+
+  color: white;
+  outline: none;
+  border: none;
+  background: #240b36;
+  border: 1px solid #240b36;
+
+  font-family: DefaultFont;
+  font-size: 3vh;
+
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+#register-form-wrap .submitBtn:hover {
+  cursor: pointer;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #E9E7E7;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #E9E7E7;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #E9E7E7;
+}

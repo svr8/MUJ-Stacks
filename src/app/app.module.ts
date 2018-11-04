@@ -1,16 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { TestComponent } from './components/test/test.component';
+import { NotificationBarComponent } from './components/notification-bar/notification-bar.component';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCdmuAhESgB-zRuLtutHUfMCG5Ocpue1EI",
+  authDomain: "muj-stacks.firebaseapp.com",
+  databaseURL: "https://muj-stacks.firebaseio.com",
+  projectId: "muj-stacks",
+  storageBucket: "muj-stacks.appspot.com",
+  messagingSenderId: "428877113222"
+};
+
+const appRoutes: Routes = [
+  {path:'', component: TestComponent},
+  {path: 'register', component: SigninComponent},
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SigninComponent,
+    TestComponent,
+    NotificationBarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [NotificationBarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

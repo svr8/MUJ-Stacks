@@ -1,0 +1,20 @@
+#notification {
+  position: fixed;
+  bottom: -100px;
+  right: 10px;
+  padding: 20px;
+  width: auto;
+  height: auto;
+  max-width: 500px;
+
+
+  background-color: #424044;
+  color: white;
+  font-family: DefaultFont;
+  font-size: 3vh;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0px 0px 8px black;
+
+  z-index: 100;
+}

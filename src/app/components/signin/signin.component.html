@@ -1,0 +1,49 @@
+<div class="register-wrap">
+  <div class="register-block" id="register-cover"></div>
+  
+  <div class="register-block" id="register-content">
+    <div class="register-toggle-wrap">
+      <div class="register-toggle-button register-toggle-button-select" id="register-toggle-signin" (click)="selectSignIn('register-form-signin', 'register-form-signup')">Sign In</div>
+      <div class="register-toggle-button" id="register-toggle-signup" (click)="selectSignUp('register-form-signup','register-form-signin')">Sign Up</div>
+      <div id="register-toggle-select"></div>
+    </div>
+
+    <div id="register-form-wrap">
+
+      <div class="register-form-content" id="register-form-signin">
+        <input class="v-item inputField" type="text" placeholder="Email" [formControl]="signIn_email">
+        <input class="v-item inputField" type="password" placeholder="Password" [formControl]="signIn_password">
+        <button class="v-item submitBtn" (click)="signIn()">Sign In</button>
+      </div>
+      
+      <div class="register-form-content" id="register-form-signup">
+        <input class="v-item inputField" type="text" placeholder="Name" [formControl]="signUp_name">
+        <input class="v-item inputField" type="text" placeholder="Email" [formControl]="signUp_email">
+        <input class="v-item inputField" type="password" placeholder="Password" [formControl]="signUp_password">
+        <input class="v-item inputField" type="password" placeholder="Confirm Password" [formControl]="signUp_confirmPassword" (input)="checkPasswordMatch()">
+        
+        <!-- <div class="v-item" id="label_accountType">I am a:</div> -->
+        <ul class="v-item">
+          <li>
+            <input type="radio" id="t-option" value="Teacher" [formControl]="signUp_accountType">
+            <label for="t-option">Teacher</label>
+            
+            <div class="check"></div>
+          </li>
+          
+          <li>
+            <input type="radio" id="s-option" value="Student" [formControl]="signUp_accountType">
+            <label for="s-option">Student</label>
+            
+            <div class="check">
+            </div>
+          </li>          
+        </ul>
+
+        <button class="v-item submitBtn" (click)="signUp()">Sign Up</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
