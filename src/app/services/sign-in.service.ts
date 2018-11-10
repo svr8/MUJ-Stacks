@@ -21,10 +21,8 @@ export class SignInService {
     this.notifyController = new NotificationBarComponent();
    
     this.uid = localStorage.getItem('uid');
-    console.log('UID found: ' + this.uid);
     
     if(this.router.url != '/register' && (this.uid == 'null' || this.uid == 'undefined')) {
-      console.log('Navigating to register');
       router.navigate(['/register']);
     }
   }
@@ -90,5 +88,7 @@ export class SignInService {
     this.notifyController.showNotification(`Signed Out Successfully!`);
    
     localStorage.setItem('uid', 'null');
+
+    this.router.navigate(['/register']);
   }
 }

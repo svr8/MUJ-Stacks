@@ -1,1 +1,14 @@
-<app-sidebar *ngIf="account_type" [sidebar_type]="account_type"></app-sidebar>
+<app-sidebar (selectTargetEvent)=switchTarget($event) *ngIf="account_type" [sidebar_type]="account_type"></app-sidebar>
+
+<div class="main-content" *ngIf="selectedTarget == 'content-teacher-quizzes'">
+  CONTENT-TEACHER_QUIZZES
+</div>
+
+<div class="main-content" *ngIf="selectedTarget == 'content-teacher-questions'">
+  CONTENT-TEACHER_QUESTIONS
+</div>
+
+<div class="main-content" *ngIf="selectedTarget == 'content-teacher-account'">
+  CONTENT-TEACHER_ACCOUNT
+</div>
+

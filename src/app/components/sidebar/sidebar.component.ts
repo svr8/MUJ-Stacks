@@ -1,17 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Button } from './button';
 import { SignInService } from 'src/app/services/sign-in.service';
 
 const teacher_buttonList: Button[] = [
-  new Button('QUIZZES', 'DISPLAY QUIIZES'),
-  new Button('QUESTIONS', 'DISPLAY QUESTIONS'),
-  new Button('ACCOUNT', 'DISPLAY ACCOUNT')
+  new Button('QUIZZES', 'content-teacher-quizzes'),
+  new Button('QUESTIONS', 'content-teacher-questions'),
+  new Button('ACCOUNT', 'content-teacher-account')
 ];
 
 const studentbuttonnList: Button[] = [
-    new Button('QUIZZES', 'DISPLAY QUIIZES'),
-    new Button('QUESTIONS', 'DISPLAY QUESTIONS'),
-    new Button('ACCOUNT', 'DISPLAY ACCOUNT')
+    new Button('QUIZZES', 'content-student-quizzes'),
+    new Button('QUESTIONS', 'content-student-questions'),
+    new Button('ACCOUNT', 'content-student-account')
 ];
 
 @Component({
@@ -25,6 +25,7 @@ export class SidebarComponent implements OnInit {
   
   selectedButton: Button;
   buttonList: Button[];
+  @Output() selectTargetEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private user: SignInService) { 
   }
@@ -38,6 +39,7 @@ export class SidebarComponent implements OnInit {
 
     this.selectedButton = button;
     this.selectedButton.select();
+    this.selectTargetEvent.emit(this.selectedButton.target);
   }
 
   signOut() {

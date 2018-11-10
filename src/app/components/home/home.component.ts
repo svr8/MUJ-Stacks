@@ -10,7 +10,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class HomeComponent implements OnInit {
 
   account_type: string;
-  
+  selectedTarget: string;
+
   constructor(private firebase: FirebaseService, private user: SignInService) {}
 
   ngOnInit() {
@@ -23,12 +24,19 @@ export class HomeComponent implements OnInit {
     this.firebase.getAccountType(function(res){
       if(res == 'Teacher' || res == 'Student') {
         _this.account_type = res;
-        console.log('#' + _this.account_type);
       }
-      else console.log('Undefined account_type');
+      else {
+        console.log('Undefined account_type');
+        this.user.signOut();
+      }
 
     });
 
+  }
+
+  switchTarget($event) {
+    console.log("HOME: " +$event);
+    this.selectedTarget = $event;
   }
 
 }

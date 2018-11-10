@@ -1,0 +1,12 @@
+.main-content
+{
+  position: absolute;
+  top: 0px;
+  left: 15%;
+  width: 85%;
+  height: 100%;
+
+  float: left;
+
+  background-color: #C64E4E;
+}

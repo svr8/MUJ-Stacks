@@ -18,7 +18,7 @@
   position: relative;
   display: block;
   width: 100%;
-  height: 100px;
+  height: auto;
 }
 
 #sidebarSeg_top 
@@ -54,17 +54,4 @@
 
   padding: 5px 0px 5px 0px;
   background-color: #C12020;
-}
-
-.main-content
-{
-  position: absolute;
-  top: 0px;
-  left: 15%;
-  width: 85%;
-  height: 100%;
-
-  float: left;
-
-  background-color: #FAFAFA;
 }
