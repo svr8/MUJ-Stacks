@@ -1,0 +1,18 @@
+<div id="sidebar">
+  
+  <div class="sidebarSeg" id="sidebarSeg_top">
+    APP LOGO
+  </div>
+  
+  <div class="sidebarSeg" id="sidebarSeg_mid">
+    <div *ngFor="let button of buttonList" class="sidebar-button"
+          (click)="selectButton(button)">
+      {{button.label}}
+    </div>
+  </div>
+  
+  <div class="sidebarSeg" id="sidebarSeg_btm">
+    <div class="sidebar-button" (click)="signOut()">SIGN OUT</div>
+  </div>
+
+</div>

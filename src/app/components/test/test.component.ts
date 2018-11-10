@@ -8,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 
 }

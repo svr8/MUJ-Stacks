@@ -5,6 +5,7 @@ import { auth } from 'firebase/app';
 
 import anime from 'animejs';
 import { SignInService } from 'src/app/services/sign-in.service';
+import { Router } from '@angular/router';
 
 const swipe_duration = 600;
 const swipe_delay = 45;
@@ -149,7 +150,7 @@ export class SigninComponent implements OnInit {
     this._authSerivce.createUserWithEmailAndPassword(userDetail);    
   }
 
-  constructor(private _authSerivce: SignInService) { }
+  constructor(private _authSerivce: SignInService, private router: Router) {}
 
   ngOnInit() {
   }

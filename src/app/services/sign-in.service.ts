@@ -9,7 +9,8 @@ import { FirebaseService } from "./firebase.service";
   providedIn: "root"
 })
 export class SignInService {
-  private user;
+  private uid;
+  private userDetails;
   private notifyController: NotificationBarComponent;
 
   constructor(
@@ -18,7 +19,14 @@ export class SignInService {
     private firebase: FirebaseService,
   ) { 
     this.notifyController = new NotificationBarComponent();
-    this.user = undefined;
+   
+    this.uid = localStorage.getItem('uid');
+    console.log('UID found: ' + this.uid);
+    
+    if(this.router.url != '/register' && (this.uid == 'null' || this.uid == 'undefined')) {
+      console.log('Navigating to register');
+      router.navigate(['/register']);
+    }
   }
 
   async createUserWithEmailAndPassword(userDetail) {
@@ -28,50 +36,59 @@ export class SignInService {
     }
 
     this.notifyController.showNotification('Creating Account...');
-
     let _this = this;
+
     // CREATING USER
-    this.user = await this.mujAuth.auth
+    let user = await this.mujAuth.auth
       .createUserWithEmailAndPassword(userDetail.email, userDetail.password)
       .catch(function(error) {
         console.log(error.code);
         _this.notifyController.showNotification(`Account could not be created: ${error.message}`);
       });
 
-    if (this.user == undefined) return;
+    if (user == undefined) return;
 
     // UPLOADING ADDITIONAL USER DATA TO DATABASE
-    this.user = this.user.user;
+    user = user['user'];
     let data = {};
     data = {
       name: userDetail.name,
       account_type: userDetail.account_type
     };
-    await this.firebase.createUser(this.user.uid, data);
+    await this.firebase.createUser(user['uid'], data);
     this.notifyController.showNotification(`Account Created Successfully!`);
   }
 
   async signInWithEmailandPassword(email: string, password: string) {
     this.notifyController.showNotification('Signing In...');
 
-    this.user = null;
-    this.user = await this.mujAuth.auth
+    let _this = this;
+    let user = null;
+    user = await this.mujAuth.auth
       .signInWithEmailAndPassword(email, password)
       .catch(function(error) {
         console.log(error.code);
-        this.notifyController.showNotification(`Sign In Failed: ${error.message}`);
-      });
+        _this.notifyController.showNotification(`Sign In Failed: ${error.message}`);
+    });
 
-    if (this.user == undefined) return;
-    this.user = this.user.user;
+    if (user == undefined) return;
+    
+    user = user.user;
     this.notifyController.showNotification(`Signed In Successfully!`);
+    this.router.navigate(['/']);
+    
+    this.uid = user.uid;
+    console.log('Signed In: ' + this.uid);
+    localStorage.setItem('uid', this.uid);
   }
 
   signOut() {
+    console.log('Signing Out...');
     this.notifyController.showNotification('Signing Out...');
 
-    this.user = null;
     this.mujAuth.auth.signOut();
     this.notifyController.showNotification(`Signed Out Successfully!`);
+   
+    localStorage.setItem('uid', 'null');
   }
 }

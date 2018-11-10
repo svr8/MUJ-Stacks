@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { TestComponent } from './components/test/test.component';
 import { NotificationBarComponent } from './components/notification-bar/notification-bar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCdmuAhESgB-zRuLtutHUfMCG5Ocpue1EI",
@@ -21,8 +23,8 @@ export const firebaseConfig = {
 };
 
 const appRoutes: Routes = [
-  // {path:'', component: TestComponent},
-  {path:'', component: SigninComponent},
+  { path:'', component: HomeComponent },
+  // {path:'', component: SigninComponent},
   {path: 'register', component: SigninComponent},
 ]
 
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
     AppComponent,
     SigninComponent,
     TestComponent,
-    NotificationBarComponent
+    NotificationBarComponent,
+    SidebarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
