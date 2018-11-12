@@ -53,7 +53,6 @@ export class SidebarComponent implements OnInit {
     
     else if(this.sidebar_type == 'Student') 
       this.buttonList = studentbuttonnList;
-    
   }
 
 }

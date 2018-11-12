@@ -5,10 +5,47 @@
 </div>
 
 <div class="main-content" *ngIf="selectedTarget == 'content-teacher-questions'">
-  CONTENT-TEACHER_QUESTIONS
+<!-- <div class="main-content"> -->
+  
+  <div id="add-question-button" class="v-item" (click)="switchTarget('add-new-question')">
+    <div id="add-question-logo" class="h-item">+</div>
+    <div id="add-question-label" class="h-item">Add Question</div>
+  </div>
+
+  <table id="question-list" class="v-item">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Language</th>
+    </tr>
+    <tr *ngFor="let question of questionList">
+      <td>{{question.id}}</td>
+      <td>{{question.title}}</td>
+      <td>{{question.language}}</td>
+    </tr>
+   
+  </table>
+</div>
+
+<div class="main-content" *ngIf="selectedTarget == 'add-new-question'">
+  ADD NEW QUESTION
 </div>
 
 <div class="main-content" *ngIf="selectedTarget == 'content-teacher-account'">
-  CONTENT-TEACHER_ACCOUNT
+<!-- <div class="main-content"> -->
+  <table id="account-details-table">
+    <tr>
+      <td class="account-detail-key">Name</td>
+      <td class="account-detail-value">{{teacher.name}}</td>
+    </tr>
+    <tr>
+      <td class="account-detail-key">Account</td>
+      <td class="account-detail-value">{{teacher.account_type}}</td>
+    </tr>
+    <tr>
+      <td class="account-detail-key">Email</td>
+      <td class="account-detail-value">{{teacher.email}}</td>
+    </tr>
+  </table>
 </div>
 

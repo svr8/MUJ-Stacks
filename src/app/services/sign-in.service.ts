@@ -78,6 +78,7 @@ export class SignInService {
     this.uid = user.uid;
     console.log('Signed In: ' + this.uid);
     localStorage.setItem('uid', this.uid);
+    localStorage.setItem('email', email);
   }
 
   signOut() {
@@ -88,6 +89,7 @@ export class SignInService {
     this.notifyController.showNotification(`Signed Out Successfully!`);
    
     localStorage.setItem('uid', 'null');
+    localStorage.setItem('email', null);
 
     this.router.navigate(['/register']);
   }
