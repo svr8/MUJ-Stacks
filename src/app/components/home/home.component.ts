@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SignInService } from 'src/app/services/sign-in.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { TeacherAccount } from '../main-content/teacher/account';
@@ -9,7 +9,7 @@ const emptyQuestionList_Message = new Question('-', 'You have not added any ques
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   
@@ -84,7 +84,8 @@ export class HomeComponent implements OnInit {
     // Load questionIDList of current user(teacher)
     this.firebase.getQuestionIDList(function(idList) {
       if(idList.length == 0) {
-        _this.questionList.push(emptyQuestionList_Message);
+        if(_this.questionList.length == 0)
+          _this.questionList.push(emptyQuestionList_Message);
         return;
       }
       
@@ -92,7 +93,11 @@ export class HomeComponent implements OnInit {
 
         // Load question with id: res[id]
         _this.firebase.getQuestion(idList[id], function(res) {
-          if(res == null) return;
+          if(res == null) {
+            if(_this.questionList.length == 0)
+            _this.questionList.push(emptyQuestionList_Message);
+            return;
+          }
           // Upadte current questions list
           let question = new Question(idList[id], res['title'], res['lang']);
           _this.questionList.push(question);

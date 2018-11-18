@@ -1,7 +1,8 @@
-/* @font-face {
+@font-face {
   font-family: KFont;
   src: url('../../../assets/fonts/KoHo-SemiBold.ttf');
-} */
+}
+
 
 .main-content
 {
@@ -16,6 +17,8 @@
   background-color: #ECECEC;
 
   font-family: DefaultFont;
+
+  overflow-y: scroll;
 }
 
 /* CONTENT-TEACHER-ACCOUNT */
@@ -34,6 +37,10 @@
   font-family: DefaultFont;
 }
 
+/*----------------------------------------------------------------------------*/
+
+/* CONTENT-TEACHER-QUESTIONS */
+
 .main-content .v-item {
   margin: 0 auto;
   display: flex;
@@ -42,13 +49,11 @@
   margin-left: 30px; 
   margin-top: 10px; 
 }
+
 .main-content .v-item:first-child {
   margin-top: 30px;
 }
 
-/*----------------------------------------------------------------------------*/
-
-/* CONTENT-TEACHER-QUESTIONS */
 #add-question-button {
   position: relative;
   width: 130px;
@@ -65,11 +70,14 @@
   width: 25px;
   height: 25px;
 
-  background-image: url('../../../assets/images/plus.svg');
+  background-image: url('../../../assets/images/baseline_add_white_18dp.png');
   background-size: cover;
+  color: white;
 }
 
 #add-question-button #add-question-label {
+  position: relative;
+  top: 1px;
   margin-left: 5px;
   font-family: DefaultFont;
   color: white;
@@ -106,4 +114,78 @@
 }
 #question-list td:nth-child(3n+3) {
   width: 300px;
+}
+
+/* ADD-NEW-QUESTION */
+.question-input {
+  width: 95%;
+  height: auto;
+  /* border: 1px solid black; */
+
+  padding: 5px;
+}
+.question-input-label {
+  margin-right: 20px;
+  padding: 5px;
+}
+.question-input-line {
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  border-bottom: 1px solid #C8C8C8;
+  padding: 5px;
+  
+  font-family: DefaultFont;
+
+  transition: 0.6s;
+}
+
+.question-input-box {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #C8C8C8;
+  border-radius: 8px;
+  padding: 10px;
+  
+  font-family: DefaultFont;
+  font-size: 2.5vh;
+
+  transition: 0.6s;
+}
+.question-input-line:focus, .question-input-box:focus {
+  border-color: black;
+}
+#add-new-question table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+
+#add-new-question td {
+  vertical-align: top;
+  text-align: left;
+}
+
+#add-new-test-case {
+  color: black;
+  padding: 5px 5px 3px 5px;
+  width: 130px;
+  border-radius: 8px;
+  background-color: green;
+}
+#add-test-label {
+  position: relative;
+  top: -6px;
+}
+
+#add-test-logo {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  background-image: url('../../../assets/images/plus.svg');
+  background-size: cover;
+}
+
+#add-new-test-case .h-item {
+  display: inline-block;
 }

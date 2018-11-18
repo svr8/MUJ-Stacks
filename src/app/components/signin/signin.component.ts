@@ -150,7 +150,11 @@ export class SigninComponent implements OnInit {
     this._authSerivce.createUserWithEmailAndPassword(userDetail);    
   }
 
-  constructor(private _authSerivce: SignInService, private router: Router) {}
+  constructor(private _authSerivce: SignInService, private router: Router) {
+    let uid = localStorage.getItem('uid');
+    if(uid)
+      router.navigate(['']);
+  }
 
   ngOnInit() {
   }

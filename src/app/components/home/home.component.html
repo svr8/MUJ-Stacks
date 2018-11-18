@@ -6,9 +6,8 @@
 
 <div class="main-content" *ngIf="selectedTarget == 'content-teacher-questions'">
 <!-- <div class="main-content"> -->
-  
   <div id="add-question-button" class="v-item" (click)="switchTarget('add-new-question')">
-    <div id="add-question-logo" class="h-item">+</div>
+    <div id="add-question-logo" class="h-item"></div>
     <div id="add-question-label" class="h-item">Add Question</div>
   </div>
 
@@ -27,8 +26,33 @@
   </table>
 </div>
 
-<div class="main-content" *ngIf="selectedTarget == 'add-new-question'">
-  ADD NEW QUESTION
+<!-- <div id="add-new-question" class="main-content" *ngIf="selectedTarget == 'add-new-question'"> -->
+<div id="add-new-question" class="main-content">
+  <table class="v-item">
+    <tr>
+      <td class="question-input-label">TITLE</td>
+      <td> <input class="question-input-line"> </td>
+    </tr>
+    <tr>
+      <td class="question-input-label">DESCRIPTION</td>
+      <td><textarea class="question-input-box" rows="16" cols="80"></textarea></td>
+    </tr>
+    <tr>
+      <td class="question-input-label">TIME LIMIT (s)</td>
+      <td> <input class="question-input-line" type="number"> </td>
+    </tr>
+    <tr>
+      <td class="question-input-label">CONSTRAINTS</td>
+      <td><textarea class="question-input-box" rows="6" cols="30"></textarea></td>
+    </tr>
+    <tr>
+      <td class="question-input-label">TEST CASES</td>
+      <td id="add-new-test-case">
+          <div id="add-test-logo" class="h-item"></div>
+          <div id="add-test-label" class="h-item">Add Test Case</div>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <div class="main-content" *ngIf="selectedTarget == 'content-teacher-account'">
