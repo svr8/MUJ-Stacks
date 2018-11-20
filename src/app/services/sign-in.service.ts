@@ -18,12 +18,14 @@ export class SignInService {
     private router: Router,
     private firebase: FirebaseService,
   ) { 
+
     this.notifyController = new NotificationBarComponent();
-   
     this.uid = localStorage.getItem('uid');
-    
-    if(this.router.url != '/register' && (this.uid == 'null' || this.uid == 'undefined')) {
-      router.navigate(['/register']);
+
+    if(this.router.url != '/register' && (!this.uid || this.uid == 'null' || this.uid == 'undefined')) {
+      localStorage.setItem('uid', null);
+      localStorage.setItem('email', null);  
+      this.router.navigate(['/register']);
     }
   }
 
@@ -86,11 +88,12 @@ export class SignInService {
     this.notifyController.showNotification('Signing Out...');
 
     this.mujAuth.auth.signOut();
-    this.notifyController.showNotification(`Signed Out Successfully!`);
+    this.notifyController.showNotification('Signed Out Successfully!');
    
-    localStorage.setItem('uid', 'null');
+    localStorage.setItem('uid', null);
     localStorage.setItem('email', null);
 
+    console.log('Navigating to SIGN IN PAGE');
     this.router.navigate(['/register']);
   }
 }

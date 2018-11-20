@@ -152,8 +152,8 @@ export class SigninComponent implements OnInit {
 
   constructor(private _authSerivce: SignInService, private router: Router) {
     let uid = localStorage.getItem('uid');
-    if(uid)
-      router.navigate(['']);
+    if(uid && uid!='null' && uid!='undefined')
+      this.router.navigate(['']);
   }
 
   ngOnInit() {

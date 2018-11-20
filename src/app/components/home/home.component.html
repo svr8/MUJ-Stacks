@@ -29,29 +29,96 @@
 <!-- <div id="add-new-question" class="main-content" *ngIf="selectedTarget == 'add-new-question'"> -->
 <div id="add-new-question" class="main-content">
   <table class="v-item">
+    <!-- QUESTION TITLE -->
     <tr>
       <td class="question-input-label">TITLE</td>
       <td> <input class="question-input-line"> </td>
     </tr>
+    
+    <!-- QUESTION DESCRIPTION -->
     <tr>
       <td class="question-input-label">DESCRIPTION</td>
-      <td><textarea class="question-input-box" rows="16" cols="80"></textarea></td>
+      <td><div class="question-input-box" contenteditable="true"></div></td>
     </tr>
+    
+    <!-- QUESTION TIME LIMIT -->
     <tr>
       <td class="question-input-label">TIME LIMIT (s)</td>
       <td> <input class="question-input-line" type="number"> </td>
     </tr>
+
+    <!-- QUESTION CONSTRAINTS -->
     <tr>
       <td class="question-input-label">CONSTRAINTS</td>
-      <td><textarea class="question-input-box" rows="6" cols="30"></textarea></td>
+      <td>
+        <table style="position:relative;top:-12px;">
+          <tr>
+            <th>
+              <div class="add-item-btn" (click)="addNewConstraint()"></div>
+            </th>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{constraintList.length}} added</td>
+          </tr>
+          <tr *ngFor="let constraint of constraintList; let in=index; trackBy:trackByFn">
+            <td><input class="question-constraint-input" placeholder="Insert Constraint Here" [(ngModel)]="constraintList[in]"></td>
+            <td><div class="delete-item-btn" (click)="deleteConstraint(constraint)"></div></td>
+          </tr>
+        </table>
+      </td>
     </tr>
+
+    <!-- QUESTION SAMPLE TEST CASES -->
     <tr>
+        <td class="question-input-label">SAMPLE TEST CASES</td>
+        <td>
+            <table style="position:relative;top:-12px;">
+              <tr>
+                <th>
+                  <div class="add-item-btn" (click)="addSampleCase()"></div>
+                </th>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;{{sampleCaseList.length}} added</td>
+              </tr>
+              <tr *ngFor="let testcase of sampleCaseList; let in=index">
+                <td><textarea class="question-io-box" placeholder="Insert Sample Input Here" [(ngModel)]="sampleCaseList[in].input"></textarea></td>
+                <td><textarea class="question-io-box" placeholder="Insert Sample Output Here" [(ngModel)]="sampleCaseList[in].output"></textarea></td>
+                <td><div class="delete-item-btn" (click)="deleteSampleCase(testcase)"></div></td>
+              </tr>
+            </table>
+        </td>
+    </tr>
+
+    <!-- QUESTION SAMPLE TEST CASES -->
+    <tr>
+        <td class="question-input-label">TEST CASES</td>
+        <td>
+            <table style="position:relative;top:-12px;">
+              <tr>
+                <th>
+                  <div class="add-item-btn" (click)="addTestCase()"></div>
+                </th>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;{{testCaseList.length}} added</td>
+              </tr>
+              <tr *ngFor="let testcase of testCaseList; let in=index">
+                <td><textarea class="question-io-box" placeholder="Insert Input Here" [(ngModel)]="testCaseList[in]"></textarea></td>
+                <td><textarea class="question-io-box" placeholder="Insert Output Here" [(ngModel)]="testCaseList[in]"></textarea></td>
+                <td><div class="delete-item-btn" (click)="deleteTestCase(testcase)"></div></td>
+              </tr>
+            </table>
+        </td>
+    </tr>
+
+    <!-- SUBMIT BUTTON -->
+    <tr>
+      <td><div id="submit-question-btn" (click)="uploadQuestion()">UPLOAD QUESTION</div></td>
+    </tr>
+
+
+    <!-- <tr>
       <td class="question-input-label">TEST CASES</td>
       <td id="add-new-test-case">
           <div id="add-test-logo" class="h-item"></div>
           <div id="add-test-label" class="h-item">Add Test Case</div>
       </td>
-    </tr>
+    </tr> -->
   </table>
 </div>
 

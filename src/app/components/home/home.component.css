@@ -3,6 +3,7 @@
   src: url('../../../assets/fonts/KoHo-SemiBold.ttf');
 }
 
+/* GENERAL STUFF */
 
 .main-content
 {
@@ -19,6 +20,19 @@
   font-family: DefaultFont;
 
   overflow-y: scroll;
+}
+
+.main-content .v-item {
+  margin: 0 auto;
+  display: flex;
+  justify-content: left;
+
+  margin-left: 30px; 
+  margin-top: 10px; 
+}
+
+.main-content .v-item:first-child {
+  margin-top: 30px;
 }
 
 /* CONTENT-TEACHER-ACCOUNT */
@@ -40,19 +54,6 @@
 /*----------------------------------------------------------------------------*/
 
 /* CONTENT-TEACHER-QUESTIONS */
-
-.main-content .v-item {
-  margin: 0 auto;
-  display: flex;
-  justify-content: left;
-
-  margin-left: 30px; 
-  margin-top: 10px; 
-}
-
-.main-content .v-item:first-child {
-  margin-top: 30px;
-}
 
 #add-question-button {
   position: relative;
@@ -142,18 +143,20 @@
 }
 
 .question-input-box {
+  width: 600px;
+  height: 300px;
+
   background-color: transparent;
   outline: none;
   border: 1px solid #C8C8C8;
-  border-radius: 8px;
-  padding: 10px;
+  padding: 5px;
   
   font-family: DefaultFont;
   font-size: 2.5vh;
 
   transition: 0.6s;
 }
-.question-input-line:focus, .question-input-box:focus {
+.question-input-line:focus, .question-input-box:focus, .question-constraint-input:focus {
   border-color: black;
 }
 #add-new-question table {
@@ -166,26 +169,76 @@
   text-align: left;
 }
 
-#add-new-test-case {
-  color: black;
-  padding: 5px 5px 3px 5px;
-  width: 130px;
-  border-radius: 8px;
-  background-color: green;
-}
-#add-test-label {
-  position: relative;
-  top: -6px;
+.question-constraint-input {
+  width: 300px; 
+  /* height: 200px;   */
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #C8C8C8;
+  padding: 5px;
+  
+  font-family: DefaultFont;
+  font-size: 2.5vh;
+
+  transition: 0.6s;
 }
 
-#add-test-logo {
+.question-io-box {
+  width: 300px; 
+  height: 80px;  
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #C8C8C8;
+  padding: 5px;
+  
+  font-family: DefaultFont;
+  font-size: 2.5vh;
+
+  transition: 0.6s;
+}
+
+.add-item-btn {
   position: relative;
+  top: -2px;
+  width: 112px;
+  height: 42px;
+  background-image: url('../../../assets/images/addConstraint.png');
+  background-color: rgb(27, 131, 27);
+  background-size: cover;
+  transition: 0.6s;
+}
+
+.add-item-btn:hover {
+  cursor: pointer;
+  background-color: rgb(47, 163, 47);
+}
+
+.delete-item-btn {
+  position: relative;
+  top: 5px;
+  left: 10px;
   width: 25px;
   height: 25px;
-  background-image: url('../../../assets/images/plus.svg');
+  background-image: url('../../../assets/images/baseline_close_black_18dp.png');
   background-size: cover;
 }
-
-#add-new-test-case .h-item {
-  display: inline-block;
+.delete-item-btn:hover {
+  cursor: pointer;
 }
+
+#submit-question-btn {
+  position: relative;
+  background-color: #B33333;
+  padding: 15px;
+
+  text-align: center;
+
+  color: white;
+  transition: 0.6s;
+}
+
+#submit-question-btn:hover {
+  cursor: pointer;
+  background-color: rgb(214, 45, 45);
+}
+

@@ -3,6 +3,7 @@ import { SignInService } from 'src/app/services/sign-in.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { TeacherAccount } from '../main-content/teacher/account';
 import { Question } from '../main-content/question';
+import { TestCase } from '../main-content/test-case';
 
 const emptyQuestionList_Message = new Question('-', 'You have not added any questions yet.', '-');
 
@@ -21,6 +22,11 @@ export class HomeComponent implements OnInit {
   // CONTENT-TEACHER-QUESTIONS
   questionList: Question[];
 
+  // ADD-NEW-QUESTION
+  constraintList: string[] = [];
+  testCaseList: TestCase[] = [];
+  sampleCaseList: TestCase[] = [];
+
   constructor(private firebase: FirebaseService, private user: SignInService) {}
 
   ngOnInit() {
@@ -28,9 +34,8 @@ export class HomeComponent implements OnInit {
     let _this = this;
     let uid = localStorage.getItem('uid');
 
-    if(uid=='undefined' || uid=='null') {
+    if(!uid || uid=='undefined' || uid=='null')
        return;
-    }
 
     // CONTENT-TEACHER-ACCOUNT
 
@@ -107,6 +112,60 @@ export class HomeComponent implements OnInit {
       }
 
     });
+  }
+
+  // ----------------------------------------------------------------------------
+
+  // ADD-NEW-QUESTION
+
+  trackByFn(index: any, item: any) {
+    return index;
+ }
+
+  addNewConstraint() {
+    this.constraintList.push('');
+  }
+  deleteConstraint(constraint: string) {
+    let index = this.constraintList.indexOf(constraint);
+    if(index != -1)
+      this.constraintList.splice(index, 1);
+  }
+
+  addSampleCase() {
+    this.sampleCaseList.push( new TestCase('', '') );
+  }
+  deleteSampleCase(testcase) {
+    let index = this.sampleCaseList.indexOf(testcase);
+    if(index != -1)
+      this.sampleCaseList.splice(index, 1);
+  }
+
+  addTestCase() {
+    this.testCaseList.push( new TestCase('', '') );
+  }
+  deleteTestCase(testcase) {
+    let index = this.testCaseList.indexOf(testcase);
+    if(index != -1)
+      this.testCaseList.splice(index, 1);
+  }
+
+  uploadQuestion() {
+    console.log('SUBMIT QUESTION');
+
+    for(let index=0;index<this.constraintList.length;index++)
+      console.log(this.constraintList[index]);
+    
+    for(let index=0;index<this.sampleCaseList.length;index++) {
+      console.log("i: "+this.sampleCaseList[index].input);
+      console.log("o: "+this.sampleCaseList[index].output);
+      console.log('');
+    }
+
+    for(let index=0;index<this.testCaseList.length;index++) {
+      console.log("i: "+this.testCaseList[index].input);
+      console.log("o: "+this.testCaseList[index].output);
+      console.log('');
+    }
   }
 
 }
