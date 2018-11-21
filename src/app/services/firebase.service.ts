@@ -12,9 +12,7 @@ export class FirebaseService {
 
   // private userRef: Observable<any[]>
 
-  constructor(public db: AngularFireDatabase) { 
-    
-  }
+  constructor(public db: AngularFireDatabase) {}
 
   async createUser(uid: string, data: any) {
     const users = await this.db.list('/users');

@@ -1,0 +1,74 @@
+
+.v-item {
+  margin: 0 auto;
+  display: flex;
+  justify-content: left;
+
+  margin-left: 30px; 
+  margin-top: 10px; 
+}
+.v-item:first-child {
+  margin-top: 30px;
+}
+
+#add-question-button {
+  position: relative;
+  width: 130px;
+  background-color: #B33333;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#add-question-button .h-item {
+  display: inline-block;
+}
+
+#add-question-button #add-question-logo {
+  width: 25px;
+  height: 25px;
+
+  background-image: url('../../../assets/images/baseline_add_white_18dp.png');
+  background-size: cover;
+  color: white;
+}
+
+#add-question-button #add-question-label {
+  position: relative;
+  top: 1px;
+  margin-left: 5px;
+  font-family: DefaultFont;
+  color: white;
+}
+
+#question-list {
+  position: relative;
+  width: 95%;
+  border-collapse: collapse;
+}
+
+#question-list th {
+  background-color: #CFCFCF;
+}
+
+#question-list tr {
+  position: relative;
+  width: 100%;
+
+  margin: 2px;
+}
+
+#question-list tr td, #question-list th {
+  padding: 0px 15px 0px 15px;
+  margin: 2px;
+
+}
+
+#question-list td:nth-child(3n+1) {  
+  width: 30px;
+}
+#question-list td:nth-child(3n+2) {
+  width: 700px; 
+}
+#question-list td:nth-child(3n+3) {
+  width: 300px;
+}

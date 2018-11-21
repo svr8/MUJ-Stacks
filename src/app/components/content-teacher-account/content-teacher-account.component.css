@@ -1,0 +1,14 @@
+#account-details-table
+{
+  position: relative;
+  top: 60px;
+  left: 60px;
+
+  font-size: 4vh;
+}
+.account-detail-key {
+  font-family: DefaultFont-SemiBold;
+}
+.account-detail-value {
+  font-family: DefaultFont;
+}

@@ -1,0 +1,84 @@
+<table class="v-item">
+  <!-- QUESTION TITLE -->
+  <tr>
+    <td class="question-input-label">TITLE</td>
+    <td> <input class="question-input-line"> </td>
+  </tr>
+  
+  <!-- QUESTION DESCRIPTION -->
+  <tr>
+    <td class="question-input-label">DESCRIPTION</td>
+    <td><div class="question-input-box" contenteditable="true"></div></td>
+  </tr>
+  
+  <!-- QUESTION TIME LIMIT -->
+  <tr>
+    <td class="question-input-label">TIME LIMIT (s)</td>
+    <td> <input class="question-input-line" type="number"> </td>
+  </tr>
+
+  <!-- QUESTION CONSTRAINTS -->
+  <tr>
+    <td class="question-input-label">CONSTRAINTS</td>
+    <td>
+      <table style="position:relative;top:-12px;">
+        <tr>
+          <th>
+            <div class="add-item-btn" (click)="question.addNewConstraint()"></div>
+          </th>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;{{question.constraint.length}} added</td>
+        </tr>
+        <tr *ngFor="let constraint of question.constraint; let in=index; trackBy:trackByFn">
+          <td><input class="question-constraint-input" placeholder="Insert Constraint Here" [(ngModel)]="question.constraint[in]"></td>
+          <td><div class="delete-item-btn" (click)="question.deleteConstraint(constraint)"></div></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- QUESTION SAMPLE TEST CASES -->
+  <tr>
+      <td class="question-input-label">SAMPLE TEST CASES</td>
+      <td>
+          <table style="position:relative;top:-12px;">
+            <tr>
+              <th>
+                <div class="add-item-btn" (click)="question.addSampleCase()"></div>
+              </th>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;{{question.sampleCase.length}} added</td>
+            </tr>
+            <tr *ngFor="let testcase of question.sampleCase; let in=index">
+              <td><textarea class="question-io-box" placeholder="Insert Sample Input Here" [(ngModel)]="question.sampleCase[in].input"></textarea></td>
+              <td><textarea class="question-io-box" placeholder="Insert Sample Output Here" [(ngModel)]="question.sampleCase[in].output"></textarea></td>
+              <td><div class="delete-item-btn" (click)="question.deleteSampleCase(testcase)"></div></td>
+            </tr>
+          </table>
+      </td>
+  </tr>
+
+  <!-- QUESTION TEST CASES -->
+  <tr>
+      <td class="question-input-label">TEST CASES</td>
+      <td>
+          <table style="position:relative;top:-12px;">
+            <tr>
+              <th>
+                <div class="add-item-btn" (click)="question.addTestCase()"></div>
+              </th>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;{{question.testCase.length}} added</td>
+            </tr>
+            <tr *ngFor="let testcase of question.testCase; let in=index">
+              <td><textarea class="question-io-box" placeholder="Insert Input Here" [(ngModel)]="question.testCase[in].input"></textarea></td>
+              <td><textarea class="question-io-box" placeholder="Insert Output Here" [(ngModel)]="question.testCase[in].output"></textarea></td>
+              <td><div class="delete-item-btn" (click)="question.deleteTestCase(testcase)"></div></td>
+            </tr>
+          </table>
+      </td>
+  </tr>
+
+  <!-- SUBMIT BUTTON -->
+  <tr>
+    <td><div id="submit-question-btn" (click)="uploadQuestion()">UPLOAD QUESTION</div></td>
+  </tr>
+
+</table>

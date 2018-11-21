@@ -12,6 +12,10 @@ import { TestComponent } from './components/test/test.component';
 import { NotificationBarComponent } from './components/notification-bar/notification-bar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
+import { ContentTeacherQuestionsComponent } from './components/content-teacher-questions/content-teacher-questions.component';
+import { NavigateService } from './services/navigate.service';
+import { ContentTeacherAccountComponent } from './components/content-teacher-account/content-teacher-account.component';
+import { AddNewQuestionComponent } from './components/add-new-question/add-new-question.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCdmuAhESgB-zRuLtutHUfMCG5Ocpue1EI",
@@ -35,7 +39,10 @@ const appRoutes: Routes = [
     TestComponent,
     NotificationBarComponent,
     SidebarComponent,
-    HomeComponent
+    HomeComponent,
+    ContentTeacherQuestionsComponent,
+    ContentTeacherAccountComponent,
+    AddNewQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [NotificationBarComponent],
+  providers: [NotificationBarComponent, NavigateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

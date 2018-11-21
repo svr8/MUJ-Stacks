@@ -1,0 +1,18 @@
+<div id="add-question-button" class="v-item" (click)="navigateService.switchTarget('add-new-question')">
+  <div id="add-question-logo" class="h-item"></div>
+  <div id="add-question-label" class="h-item">Add Question</div>
+</div>
+
+<table id="question-list" class="v-item">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Language</th>
+  </tr>
+  <tr *ngFor="let question of questionList">
+    <td>{{question.id}}</td>
+    <td>{{question.title}}</td>
+    <td>{{question.language}}</td>
+  </tr>
+  
+</table>
