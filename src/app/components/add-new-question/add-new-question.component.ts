@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../main-content/question';
-import { TestCase } from '../main-content/test-case';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { NotificationBarComponent } from '../notification-bar/notification-bar.component';
+import { callbackify } from 'util';
 
 @Component({
   selector: 'app-add-new-question',
@@ -11,8 +13,8 @@ export class AddNewQuestionComponent implements OnInit {
 
   question: Question;
 
-  constructor() {
-    this.question = new Question('', '', '');
+  constructor(private firebase: FirebaseService, private notifyController: NotificationBarComponent) {
+    this.question = new Question('ID', '', '');
    }
 
   ngOnInit() {
@@ -22,8 +24,25 @@ export class AddNewQuestionComponent implements OnInit {
     return index;
   }
 
+  checkQuestionID(callback) {
+    let _this = this;
+    this.firebase.getQuestion(this.question.qid, function(res){
+        callback(!res);        
+    });
+  }
+
   uploadQuestion() {
-    console.log('SUBMIT QUESTION');
+
+    let _this = this;
+    this.checkQuestionID(function(isValid) {
+      if(isValid) {
+        _this.notifyController.showNotification('Uploading Question');
+        _this.firebase.updateQuestion(_this.question);
+      }
+      else {
+        _this.notifyController.showNotification('Quesion ID has already been used. Please enter new ID.');
+      }
+    });
   }
 
 }

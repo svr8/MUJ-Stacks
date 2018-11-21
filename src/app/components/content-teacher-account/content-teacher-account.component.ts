@@ -13,6 +13,7 @@ export class ContentTeacherAccountComponent implements OnInit {
   
   constructor(firebase: FirebaseService) { 
     let _this = this;
+    this.teacher = new TeacherAccount('', '', '');
     firebase.getTeacherAccount(function(teacher){
       _this.teacher = teacher;
     });

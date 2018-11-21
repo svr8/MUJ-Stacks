@@ -2,19 +2,24 @@
   <!-- QUESTION TITLE -->
   <tr>
     <td class="question-input-label">TITLE</td>
-    <td> <input class="question-input-line"> </td>
+    <td> <input class="question-input-line" [(ngModel)]="question.title"> </td>
+  </tr>
+
+  <tr>
+    <td class="question-input-label">QUESTION ID</td>
+    <td> <input class="question-input-line" [(ngModel)]="question.qid"> </td>
   </tr>
   
   <!-- QUESTION DESCRIPTION -->
   <tr>
     <td class="question-input-label">DESCRIPTION</td>
-    <td><div class="question-input-box" contenteditable="true"></div></td>
+    <td><textarea class="question-input-box"></textarea></td>
   </tr>
   
   <!-- QUESTION TIME LIMIT -->
   <tr>
     <td class="question-input-label">TIME LIMIT (s)</td>
-    <td> <input class="question-input-line" type="number"> </td>
+    <td> <input class="question-input-line" type="number" placeholder="Insert numerical value"> </td>
   </tr>
 
   <!-- QUESTION CONSTRAINTS -->

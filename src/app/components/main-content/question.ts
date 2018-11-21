@@ -4,7 +4,7 @@ export class Question {
 
   public description: string;
   public constraint: string[];
-  public time_limit: number;
+  public time_limit: string;
   public testCase: TestCase[];
   public sampleCase: TestCase[];
 
