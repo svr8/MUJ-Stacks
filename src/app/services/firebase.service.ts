@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import { callbackify } from 'util';
 import { TeacherAccount } from '../components/main-content/teacher/account';
 import { Question } from '../components/main-content/question';
 
@@ -58,33 +57,38 @@ export class FirebaseService {
 
   async getQuestionIDList(callback) {
     let uid = localStorage.getItem('uid');
-    
     let qidRef = await this.db.object(`users/${uid}/qid`);
+    let _this = this;
     qidRef.valueChanges().subscribe(item => {
-      let idList = [];
-      for(let id in item) {
-        // Update qid if question is deleted
-        idList.push(item[id]);
-      }
-      callback(idList);
+      callback(item);
     });
   }
 
-  updateQuestion(question: Question) {
+  removeQuestionID(qid: string) {
+    let uid = localStorage.getItem('uid');
+   this.db.object(`users/${uid}/qid/${qid}`).remove();
+  }
+ 
+
+  uploadQuestion(question: Question, callback) {
 
     // Upload Question
     let questionRef = this.db.list('/questions');
     questionRef.set(question.qid, question);
     
     let _this = this;
+    let flag = true;
 
     // Update Current User's QID List
     this.getQuestionIDList(function(list) {
+      if(!list) list = [];
+      if(!flag) return;
+      flag = false;
       let uid = localStorage.getItem('uid');
       let qidListRef = _this.db.list(`users/${uid}/qid`);
       list[`${list.length}`] = question.qid;
-      console.log(list);
-      // qidListRef.set(`${list.length}`, question.qid);
+      qidListRef.set(`${list.length}`, question.qid);
+      callback();
     });
   }
 

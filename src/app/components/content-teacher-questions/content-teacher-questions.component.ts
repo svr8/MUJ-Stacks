@@ -22,7 +22,8 @@ export class ContentTeacherQuestionsComponent implements OnInit {
 
     // Load questionIDList of current user(teacher)
     firebase.getQuestionIDList(function(idList) {
-      if(idList.length == 0) {
+      // console.log(idList);
+      if(!idList) {
         if(_this.questionList.length == 0)
           _this.questionList.push(emptyQuestionList_Message);
         return;
@@ -33,6 +34,10 @@ export class ContentTeacherQuestionsComponent implements OnInit {
         // Load question with id: res[id]
         firebase.getQuestion(idList[id], function(res) {
           if(res == null) {
+
+            // Remove ID from database list of this user
+            firebase.removeQuestionID(id);
+
             if(_this.questionList.length == 0)
             _this.questionList.push(emptyQuestionList_Message);
             return;
