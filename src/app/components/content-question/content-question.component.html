@@ -1,0 +1,53 @@
+<table>
+  <tr class="subcontent">
+    <td class="subcontent-wrap">
+      <div class="sub-title"> {{question.title}} </div>
+    </td>
+  </tr>
+
+  <tr class="subcontent">
+    <td class="subcontent-wrap">
+      <div class="sub-content"> {{question.description}} </div>
+    </td>
+  </tr>
+
+  <tr class="subcontent">
+    <td class="subcontent-wrap">
+      <div class="sub-title"> Constraints </div>
+      <div class="sub-content"> 
+        <li *ngFor="let constraint of question.constraint">{{constraint}}</li>
+      </div>
+    </td>
+  </tr>
+
+  <tr class="subcontent">
+    <td class="subcontent-wrap">
+      <div class="sub-title"> Time Limit </div>
+      <div class="sub-content"> 
+        {{question.time_limit}}&nbsp;second(s)
+      </div>
+    </td>
+  </tr>
+
+  <div class="sub-content io" *ngFor="let case of question.sampleCase; let in=index">
+    <!-- SAMPLE INPUT -->
+    <tr>
+      <td class="subcontent-wrap">
+        <div class="sub-title"> Sample Input {{in+1}} </div>
+        <div class="sub-content"> 
+          {{case.input}}
+        </div>
+      </td>
+    </tr>
+    
+    <!-- SAMPLE OUTPUT -->
+    <tr>
+      <td class="subcontent-wrap">
+        <div class="sub-title"> Sample Output {{in+1}} </div>
+        <div class="sub-content"> 
+          {{case.output}}
+        </div>
+      </td>
+    </tr>
+  </div>
+</table>

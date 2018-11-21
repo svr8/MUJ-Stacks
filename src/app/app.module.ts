@@ -16,6 +16,7 @@ import { ContentTeacherQuestionsComponent } from './components/content-teacher-q
 import { NavigateService } from './services/navigate.service';
 import { ContentTeacherAccountComponent } from './components/content-teacher-account/content-teacher-account.component';
 import { AddNewQuestionComponent } from './components/add-new-question/add-new-question.component';
+import { ContentQuestionComponent } from './components/content-question/content-question.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCdmuAhESgB-zRuLtutHUfMCG5Ocpue1EI",
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ContentTeacherQuestionsComponent,
     ContentTeacherAccountComponent,
-    AddNewQuestionComponent
+    AddNewQuestionComponent,
+    ContentQuestionComponent,
   ],
   imports: [
     BrowserModule,

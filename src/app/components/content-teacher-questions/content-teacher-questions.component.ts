@@ -43,7 +43,7 @@ export class ContentTeacherQuestionsComponent implements OnInit {
             return;
           }
           // Upadte current questions list
-          let question = new Question(idList[id], res['title'], res['lang']);
+          let question = new Question(idList[id], res['title'], res['language']);
           _this.questionList.push(question);
 
         });

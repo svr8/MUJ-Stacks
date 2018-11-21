@@ -3,6 +3,7 @@ import { Question } from '../main-content/question';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { NotificationBarComponent } from '../notification-bar/notification-bar.component';
 import { Router } from '@angular/router';
+import { NavigateService } from 'src/app/services/navigate.service';
 
 @Component({
   selector: 'app-add-new-question',
@@ -14,7 +15,7 @@ export class AddNewQuestionComponent implements OnInit {
   question: Question;
 
   constructor(private firebase: FirebaseService, private notifyController: NotificationBarComponent,
-              private router: Router) {
+              private router: Router, private homeNavigator: NavigateService) {
     this.question = new Question('ID', '', '');
    }
 
@@ -44,7 +45,7 @@ export class AddNewQuestionComponent implements OnInit {
         _this.notifyController.showNotification('Uploading Question');
         _this.firebase.uploadQuestion(_this.question, function() {
           _this.notifyController.showNotification('Question uploaded successfully.');
-          _this.router.navigate(['']);
+          _this.homeNavigator.switchTarget('content-teacher-questions');
         });
       }
       else {

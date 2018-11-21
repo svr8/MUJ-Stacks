@@ -6,23 +6,20 @@ import { Injectable } from '@angular/core';
 export class NavigateService {
 
   selectedTarget: string;
+  selectedQID: string;
 
   constructor() { 
     this.selectedTarget = '';
+    this.selectedQID = '';
   }
 
   switchTarget($event) {
     console.log('#' + $event);
     this.selectedTarget = $event;
+  }
 
-    switch(this.selectedTarget) {
-      case 'content-teacher-account': console.log('this.teacher_account_init();'); break;
-
-      case 'content-teacher-questions': console.log('this.teacher_questions_init();'); break;
-      case 'add-new-question': console.log('add-new-question'); break;
-      
-      case 'content-teacher-quizzes': console.log($event); break;
-      default: console.log('INVALID SIDEMENU OPTION: ' + $event);
-    }
+  viewQuestion(qid: string) {
+    this.selectedQID = qid;
+    this.switchTarget('content-question');
   }
 }

@@ -6,21 +6,28 @@
     <td> <input class="question-input-line" [(ngModel)]="question.title"> </td>
   </tr>
 
+  <!-- QID -->
   <tr>
     <td class="question-input-label">QUESTION ID</td>
     <td> <input class="question-input-line" [(ngModel)]="question.qid"> </td>
+  </tr>
+
+  <!-- LANGUAGE -->
+  <tr>
+    <td class="question-input-label">LANGUAGE</td>
+    <td> <input class="question-input-line" [(ngModel)]="question.language"> </td>
   </tr>
   
   <!-- QUESTION DESCRIPTION -->
   <tr>
     <td class="question-input-label">DESCRIPTION</td>
-    <td><textarea class="question-input-box"></textarea></td>
+    <td><textarea class="question-input-box" [(ngModel)]="question.description"></textarea></td>
   </tr>
   
   <!-- QUESTION TIME LIMIT -->
   <tr>
     <td class="question-input-label">TIME LIMIT (s)</td>
-    <td> <input class="question-input-line" type="number" placeholder="Insert numerical value"> </td>
+    <td> <input class="question-input-line" type="number" [(ngModel)]="question.time_limit" placeholder="Insert numerical value"> </td>
   </tr>
 
   <!-- QUESTION CONSTRAINTS -->

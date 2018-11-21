@@ -9,8 +9,8 @@
     <th>Title</th>
     <th>Language</th>
   </tr>
-  <tr *ngFor="let question of questionList">
-    <td>{{question.id}}</td>
+  <tr *ngFor="let question of questionList" (click)="navigateService.viewQuestion(question.qid)">
+    <td>{{question.qid}}</td>
     <td>{{question.title}}</td>
     <td>{{question.language}}</td>
   </tr>
