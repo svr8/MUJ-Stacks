@@ -24,9 +24,10 @@ export class NavigateService {
   }
 
   switchTarget($event) {
+    if(!$event) return;
+    
     console.log('#' + $event);
     this.selectedTarget = $event;
-
     this.location.replaceState(this.urlMap[$event], '');
   }
 

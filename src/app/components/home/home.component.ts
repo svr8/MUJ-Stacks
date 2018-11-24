@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SignInService } from 'src/app/services/sign-in.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Question } from '../main-content/question';
-import { TestCase } from '../main-content/test-case';
 import { NavigateService } from 'src/app/services/navigate.service';
 
 const emptyQuestionList_Message = new Question('-', 'You have not added any questions yet.', '-');
@@ -18,10 +17,7 @@ export class HomeComponent implements OnInit {
   account_type: string;
 
   constructor(private firebase: FirebaseService, private user: SignInService,
-              public navigateService: NavigateService) {
-
-                
-              }
+              public navigateService: NavigateService) {}
 
   ngOnInit() {
 
@@ -45,5 +41,4 @@ export class HomeComponent implements OnInit {
 
   }
 
-  // ----------------------------------------------------------------------------
 }
