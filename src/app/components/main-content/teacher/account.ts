@@ -1,6 +1,6 @@
 import { FirebaseService } from "src/app/services/firebase.service";
 
-export class TeacherAccount {
+export class AccountBrief {
 
   public qid: string[];
 

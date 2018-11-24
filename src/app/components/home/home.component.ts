@@ -18,7 +18,10 @@ export class HomeComponent implements OnInit {
   account_type: string;
 
   constructor(private firebase: FirebaseService, private user: SignInService,
-              public navigateService: NavigateService) {}
+              public navigateService: NavigateService) {
+
+                
+              }
 
   ngOnInit() {
 
@@ -32,6 +35,7 @@ export class HomeComponent implements OnInit {
      
       if(res == 'Teacher' || res == 'Student') {
         _this.account_type = res;
+        _this.navigateService.accountType = res;
       }
       else {
         console.log('Undefined account_type');

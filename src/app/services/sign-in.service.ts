@@ -93,7 +93,6 @@ export class SignInService {
     localStorage.setItem('uid', null);
     localStorage.setItem('email', null);
 
-    console.log('Navigating to SIGN IN PAGE');
     this.router.navigate(['/register']);
   }
 }

@@ -16,7 +16,10 @@ export class AddNewQuestionComponent implements OnInit {
 
   constructor(private firebase: FirebaseService, private notifyController: NotificationBarComponent,
               private router: Router, private homeNavigator: NavigateService) {
-    this.question = new Question('ID', '', '');
+    
+    if(homeNavigator.accountType != 'Teacher')
+        homeNavigator.switchTarget('content-teacher-quizzes');
+    this.question = new Question('', '', '');
    }
 
   ngOnInit() {

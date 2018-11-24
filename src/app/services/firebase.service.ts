@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import { TeacherAccount } from '../components/main-content/teacher/account';
+import { AccountBrief } from '../components/main-content/teacher/account';
 import { Question } from '../components/main-content/question';
 
 @Injectable({
@@ -29,7 +29,7 @@ export class FirebaseService {
     });
   }
 
-  getTeacherAccount(callback) {
+  getAccountBreif(callback) {
     let uid = localStorage.getItem('uid');
     
     let accountDetails = this.db.object(`/users/${uid}`);
@@ -37,7 +37,7 @@ export class FirebaseService {
       let ob = item;
       ob['email'] = localStorage.getItem('email');
       
-      let teacher = new TeacherAccount(
+      let teacher = new AccountBrief(
         item['name'],
         item['email'],
         item['account_type']

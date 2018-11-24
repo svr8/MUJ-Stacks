@@ -6,6 +6,7 @@ import { auth } from 'firebase/app';
 import anime from 'animejs';
 import { SignInService } from 'src/app/services/sign-in.service';
 import { Router } from '@angular/router';
+import { NavigateService } from 'src/app/services/navigate.service';
 
 const swipe_duration = 600;
 const swipe_delay = 45;
@@ -137,6 +138,7 @@ export class SigninComponent implements OnInit {
     let email = this.signIn_email.value;
     let password = this.signIn_password.value;
     this._authSerivce.signInWithEmailandPassword(email, password);
+    this.homeNavigator.switchTarget('content-teacher-quizzes');
   }
 
   public signUp() {
@@ -150,7 +152,7 @@ export class SigninComponent implements OnInit {
     this._authSerivce.createUserWithEmailAndPassword(userDetail);    
   }
 
-  constructor(private _authSerivce: SignInService, private router: Router) {
+  constructor(private _authSerivce: SignInService, private router: Router, private homeNavigator: NavigateService) {
     let uid = localStorage.getItem('uid');
     if(uid && uid!='null' && uid!='undefined')
       this.router.navigate(['']);

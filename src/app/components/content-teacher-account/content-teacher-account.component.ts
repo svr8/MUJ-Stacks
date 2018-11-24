@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TeacherAccount } from '../main-content/teacher/account';
+import { AccountBrief } from '../main-content/teacher/account';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
@@ -9,12 +9,12 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class ContentTeacherAccountComponent implements OnInit {
   
-  teacher: TeacherAccount;
+  teacher: AccountBrief;
   
   constructor(firebase: FirebaseService) { 
     let _this = this;
-    this.teacher = new TeacherAccount('', '', '');
-    firebase.getTeacherAccount(function(teacher){
+    this.teacher = new AccountBrief('', '', '');
+    firebase.getAccountBreif(function(teacher){
       _this.teacher = teacher;
     });
   }
