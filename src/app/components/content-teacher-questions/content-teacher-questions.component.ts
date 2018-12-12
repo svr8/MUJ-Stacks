@@ -14,19 +14,23 @@ export class ContentTeacherQuestionsComponent implements OnInit {
 
   questionList: Question[];
 
-  @Output() selectTargetEvent: EventEmitter<string> = new EventEmitter<string>();
+  // @Output() selectTargetEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(public navigateService: NavigateService, firebase: FirebaseService) {
     let _this = this;
     this.questionList = [];
+    console.log('LOADING QUESTIONS');
 
     // Load questionIDList of current user(teacher)
     firebase.getQuestionIDList(function(idList) {
       // console.log(idList);
       if(!idList) {
+        
+        // If empty list message was not already inserted
         if(_this.questionList.length == 0)
           _this.questionList.push(emptyQuestionList_Message);
-        return;
+        
+          return;
       }
       
       for(let id in idList) {

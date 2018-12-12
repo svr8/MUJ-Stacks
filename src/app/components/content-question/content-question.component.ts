@@ -10,6 +10,7 @@ import { NavigateService } from 'src/app/services/navigate.service';
 })
 export class ContentQuestionComponent implements OnInit {
 
+  account_type: string;
   question: Question;
 
   constructor(private firebase: FirebaseService, private homeNavigator: NavigateService) { 
@@ -17,13 +18,32 @@ export class ContentQuestionComponent implements OnInit {
     let _this = this;
     firebase.getQuestion(homeNavigator.selectedQID, function(res){
       console.log(res);
-      _this.question.setDetails(res);
+      if(res)
+        _this.question.setDetails(res);
+      else
+        homeNavigator.switchTarget('content-teacher-questions');
     });
 
+    this.account_type = homeNavigator.accountType;
+    if(!this.account_type) {
+      this.firebase.getAccountType(function(res){
+        _this.account_type = res;
+        homeNavigator.accountType = res;
+      });
+    }
   }
 
   ngOnInit() {
     console.log('VIEW QUESTION');
+  }
+
+  editQuestion() {
+    this.homeNavigator.switchToEditQuestion(this.question.qid);
+  }
+  deleteQuestion() {
+    console.log(`Deleting ${this.question.qid}`);
+    this.firebase.deleteQuestion(this.question.qid);
+    this.homeNavigator.switchTarget('content-teacher-questions');
   }
 
 }

@@ -55,6 +55,11 @@ export class FirebaseService {
     });
   }
 
+  async deleteQuestion(qid) {
+    const questionRef = await this.db.list('/questions');
+    await questionRef.set(qid, null);
+  }
+
   async getQuestionIDList(callback) {
     let uid = localStorage.getItem('uid');
     let qidRef = await this.db.object(`users/${uid}/qid`);

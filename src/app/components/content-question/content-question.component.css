@@ -18,6 +18,28 @@ table {
   margin-top: 5px;
 }
 
+.question-options .h-item {
+  display: inline-block;
+  margin: 2px;
+  padding: 5px;
+  background: rgb(238, 96, 96);
+
+  transition: 0.4s;
+}
+.question-options .h-item:first-child {
+  margin-left: 0px;
+}
+
+.question-options .h-item:hover {
+  cursor: pointer;
+  background: rgb(223, 54, 54); 
+}
+
+.question-options {
+  padding: 2px;
+  padding-left: 0px;
+}
+
 .io {
   background-color: rgb(207, 207, 207);
 }

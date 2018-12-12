@@ -1,7 +1,12 @@
-<div class="question-options">
-  TEST
-</div>
 <table>
+  <tr class="subcontent">
+      <td class="subcontent-wrap">
+        <div class="question-options" *ngIf="account_type=='Teacher'">
+          <div class="h-item" (click)="editQuestion()">Edit</div>
+          <div class="h-item" (click)="deleteQuestion()">Delete</div>          
+        </div>
+    </td>
+  </tr>
   <tr class="subcontent">
     <td class="subcontent-wrap">
       <div class="sub-title"> {{question.title}} </div>

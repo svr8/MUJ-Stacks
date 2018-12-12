@@ -11,7 +11,7 @@ export class AppComponent {
 
   targetMap: {};
 
-  constructor(private router: Router, private homeNavigator: NavigateService, private route: ActivatedRoute) {
+  constructor(private router: Router, private homeNavigator: NavigateService) {
 
     this.targetMap = {
       '': 'content-teacher-quizzes',
@@ -28,15 +28,15 @@ export class AppComponent {
 
   onRouteChange() {
     const url = this.router.url;
+    const prefix = '/problems/:';
 
-    let prefix = '/problems/:';
     if(url.indexOf(prefix) == 0) {
       const id = url.substring( url.indexOf(':')+1 );
       this.homeNavigator.viewQuestion(id);
     }
     else {
       const suffix = url.substring( 1 );
-      this.homeNavigator.switchTarget(suffix);
+      this.homeNavigator.switchTarget( this.targetMap[suffix] );
     }
 
   }

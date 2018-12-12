@@ -19,18 +19,29 @@ export class AddNewQuestionComponent implements OnInit {
     
     if(homeNavigator.accountType != 'Teacher')
         homeNavigator.switchTarget('content-teacher-quizzes');
-    this.question = new Question('', '', '');
+        this.question = new Question('', '', '');
    }
 
   ngOnInit() {
+    if(this.homeNavigator.editQuestionStatus) {
+      this.autoFillData(this.homeNavigator.selectedQID);
+    }
   }
+
+  autoFillData(qid: string) {
+    console.log(`Loading ${qid}`);
+    let _this = this;
+    this.firebase.getQuestion(qid, function(question) {
+      _this.question = question;
+    }); 
+  }
+
 
   trackByFn(index: any, item: any) {
     return index;
   }
 
   checkQuestionID(callback) {
-    let _this = this;
     this.firebase.getQuestion(this.question.qid, function(res){
         callback(!res);        
     });
@@ -39,20 +50,22 @@ export class AddNewQuestionComponent implements OnInit {
   uploadQuestion() {
 
     let _this = this;
-    let flag = true;
+    let flag = true; // workaround: question was being uploaded more than once
     this.checkQuestionID(function(isValid) {
       if(!flag) return;
 
-      if(isValid) {
+      if(isValid || _this.homeNavigator.editQuestionStatus) {
         flag = false;
+        _this.homeNavigator.editQuestionStatus = false;
         _this.notifyController.showNotification('Uploading Question');
         _this.firebase.uploadQuestion(_this.question, function() {
-          _this.notifyController.showNotification('Question uploaded successfully.');
-          _this.homeNavigator.switchTarget('content-teacher-questions');
+        _this.notifyController.showNotification('Question uploaded successfully.');
+        _this.homeNavigator.viewQuestion(_this.question.qid);
         });
       }
       else {
         _this.notifyController.showNotification('Quesion ID has already been used. Please enter new ID.');
+        _this.homeNavigator.viewQuestion(this.question.qid);
       }
     });
   }
