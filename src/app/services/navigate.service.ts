@@ -19,14 +19,13 @@ export class NavigateService {
       'content-teacher-quizzes': 'quiz',
       'content-teacher-questions': 'problems',
       'add-new-question': 'new-problem',
-      'content-teacher-account': 'account'
+      'content-teacher-account': 'account',
+      'content-question': 'problems'
     };
   }
 
   switchTarget($event) {
     if(!$event) return;
-    
-    console.log('#' + $event);
     this.selectedTarget = $event;
     this.location.replaceState(this.urlMap[$event], '');
   }
@@ -34,5 +33,6 @@ export class NavigateService {
   viewQuestion(qid: string) {
     this.selectedQID = qid;
     this.switchTarget('content-question');
+    this.location.replaceState(`problems/:${qid}`, '');
   }
 }
