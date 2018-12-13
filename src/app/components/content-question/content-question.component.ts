@@ -34,16 +34,18 @@ export class ContentQuestionComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('VIEW QUESTION');
   }
 
   editQuestion() {
     this.homeNavigator.switchToEditQuestion(this.question.qid);
   }
   deleteQuestion() {
-    console.log(`Deleting ${this.question.qid}`);
     this.firebase.deleteQuestion(this.question.qid);
     this.homeNavigator.switchTarget('content-teacher-questions');
+  }
+  solveQuestion() {
+    console.log(`Solve Question: ${this.question.qid}`)
+    this.homeNavigator.solveQuestion(this.question.qid);
   }
 
 }

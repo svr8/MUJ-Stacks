@@ -22,21 +22,27 @@ export class NavigateService {
       'content-teacher-questions': 'problems',
       'add-new-question': 'new-problem',
       'content-teacher-account': 'account',
-      'content-solution': 'solution',
     };
   }
 
   switchTarget($event) {
     if(!$event) return;
     this.selectedTarget = $event;
-    this.location.replaceState(this.urlMap[$event], '');
+    this.location.go(this.urlMap[$event], '');
   }
 
   viewQuestion(qid: string) {
     this.editQuestionStatus = false;
     this.selectedQID = qid;
     this.switchTarget('content-question');
-    this.location.replaceState(`problems/:${qid}`, '');
+    this.location.go(`problems/:${qid}`, '');
+  }
+  solveQuestion(qid: string) {
+    this.editQuestionStatus = false;
+    this.selectedQID = qid;
+    this.switchTarget('content-solution');
+    console.log('>>'+qid);
+    this.location.go(`solution/:${qid}`, '');
   }
 
   switchToEditQuestion(qid: string) {
@@ -44,6 +50,6 @@ export class NavigateService {
     this.editQuestionStatus = true;
     this.selectedQID = qid;
     this.selectedTarget = 'add-new-question';
-    this.location.replaceState(this.urlMap['add-new-question'], '');
+    this.location.go(this.urlMap['add-new-question'], '');
   }
 }

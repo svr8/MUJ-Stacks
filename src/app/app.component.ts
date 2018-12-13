@@ -29,16 +29,25 @@ export class AppComponent {
 
   onRouteChange() {
     const url = this.router.url;
-    const prefix = '/problems/:';
+    const prefix_problem = '/problems/:',
+          prefix_solution = '/solution/:';
 
-    if(url.indexOf(prefix) == 0) {
+
+    if(this.hasURLPrefix(prefix_problem)) {
       const id = url.substring( url.indexOf(':')+1 );
       this.homeNavigator.viewQuestion(id);
+    } else if(this.hasURLPrefix(prefix_solution)) {
+      const id = url.substring( url.indexOf(':')+1 );
+      this.homeNavigator.solveQuestion(id);
     }
     else {
       const suffix = url.substring( 1 );
       this.homeNavigator.switchTarget( this.targetMap[suffix] );
     }
 
+  }
+
+  hasURLPrefix(prefix: string): boolean {
+    return this.router.url.indexOf(prefix) == 0;
   }
 }
