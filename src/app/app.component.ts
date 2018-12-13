@@ -18,7 +18,8 @@ export class AppComponent {
       'quiz': 'content-teacher-quizzes',
       'problems': 'content-teacher-questions',
       'new-problem': 'add-new-question',
-      'account': 'content-teacher-account'
+      'account': 'content-teacher-account',
+      'solution': 'content-solution'
     };
 
    }

@@ -4,7 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AceEditorModule } from 'ng2-ace-editor';
 
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
@@ -18,6 +19,7 @@ import { ContentTeacherAccountComponent } from './components/content-teacher-acc
 import { AddNewQuestionComponent } from './components/add-new-question/add-new-question.component';
 import { ContentQuestionComponent } from './components/content-question/content-question.component';
 import { ContentTeacherQuizzesComponent } from './components/content-teacher-quizzes/content-teacher-quizzes.component';
+import { ContentSolutionComponent } from './components/content-solution/content-solution.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCdmuAhESgB-zRuLtutHUfMCG5Ocpue1EI",
@@ -31,17 +33,12 @@ export const firebaseConfig = {
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'quiz', component: HomeComponent },
-  // { path: 'problems', component: HomeComponent,
-  //     pathMatch: 'prefix',
-  //     children: [
-  //       { path: '', component: HomeComponent}
-  //     ]
-  // },
   { path: 'problems', component: HomeComponent},
   { path: 'problems/:id', component: HomeComponent},
   { path: 'new-problem', component: HomeComponent },
   { path: 'account', component: HomeComponent },
   { path: 'register', component: SigninComponent },
+  { path: 'solution', component: HomeComponent }
 ]
 
 @NgModule({
@@ -57,6 +54,7 @@ const appRoutes: Routes = [
     AddNewQuestionComponent,
     ContentQuestionComponent,
     ContentTeacherQuizzesComponent,
+    ContentSolutionComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +64,7 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes),
+    AceEditorModule,
   ],
   providers: [NotificationBarComponent, NavigateService],
   bootstrap: [AppComponent]

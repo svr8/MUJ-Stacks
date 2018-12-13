@@ -4,6 +4,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { AccountBrief } from '../components/main-content/teacher/account';
 import { Question } from '../components/main-content/question';
+import { NavigateService } from './navigate.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class FirebaseService {
 
   // private userRef: Observable<any[]>
 
-  constructor(public db: AngularFireDatabase) {}
+  constructor(public db: AngularFireDatabase, private homeNavigator: NavigateService) {}
 
   async createUser(uid: string, data: any) {
     const users = await this.db.list('/users');
@@ -89,10 +90,12 @@ export class FirebaseService {
       if(!list) list = [];
       if(!flag) return;
       flag = false;
-      let uid = localStorage.getItem('uid');
-      let qidListRef = _this.db.list(`users/${uid}/qid`);
-      list[`${list.length}`] = question.qid;
-      qidListRef.set(`${list.length}`, question.qid);
+      if(!_this.homeNavigator.editQuestionStatus) {
+        let uid = localStorage.getItem('uid');
+        let qidListRef = _this.db.list(`users/${uid}/qid`);
+        list[`${list.length}`] = question.qid;
+        qidListRef.set(`${list.length}`, question.qid);
+      }
       callback();
     });
   }

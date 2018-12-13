@@ -56,11 +56,11 @@ export class AddNewQuestionComponent implements OnInit {
 
       if(isValid || _this.homeNavigator.editQuestionStatus) {
         flag = false;
-        _this.homeNavigator.editQuestionStatus = false;
         _this.notifyController.showNotification('Uploading Question');
         _this.firebase.uploadQuestion(_this.question, function() {
-        _this.notifyController.showNotification('Question uploaded successfully.');
-        _this.homeNavigator.viewQuestion(_this.question.qid);
+          _this.notifyController.showNotification('Question uploaded successfully.');
+          _this.homeNavigator.viewQuestion(_this.question.qid);
+          _this.homeNavigator.editQuestionStatus = false;
         });
       }
       else {

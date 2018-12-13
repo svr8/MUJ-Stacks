@@ -22,7 +22,7 @@ export class NavigateService {
       'content-teacher-questions': 'problems',
       'add-new-question': 'new-problem',
       'content-teacher-account': 'account',
-      'content-question': 'problems'
+      'content-solution': 'solution',
     };
   }
 
