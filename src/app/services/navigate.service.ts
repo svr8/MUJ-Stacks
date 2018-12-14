@@ -41,7 +41,6 @@ export class NavigateService {
     this.editQuestionStatus = false;
     this.selectedQID = qid;
     this.switchTarget('content-solution');
-    console.log('>>'+qid);
     this.location.go(`solution/:${qid}`, '');
   }
 

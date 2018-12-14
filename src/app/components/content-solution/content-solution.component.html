@@ -1,20 +1,19 @@
 <div ace-editor style="position: relative;top: 0px;left: 0px;width: 100%;height: 100%;"
-  [(text)]="text"
-  [mode]="'java'" 
-  [options]="{enableBasicAutocompletion: true,enableSnippets: true,enableLiveAutocompletion: true,autoScrollEditorIntoView: true,showPrintMargin: false,fontSize: '20px'}"
+  [(text)]="data"
+  [mode]="language" 
+  [options]="options"
   [readOnly]="false"
   [autoUpdateContent]="true" 
-  [durationBeforeCallback]="1000" 
-  (textChanged)="onChange($event)"
+  [durationBeforeCallback]="500" 
   style="min-height: 70%;overflow: auto;">
 </div>
 <div id="optionsContainer">
   <div class="h-item">
-    <input type="checkbox" name="customInput" value="use">
+    <input type="checkbox" [(ngModel)]="hasCustomInput">
     Use Custom Input
   </div>
-  <div class="h-item">Compile</div>
-  <div class="h-item">Run</div>
+  <div class="h-item" (click)="compile()">Compile</div>
+  <div class="h-item" (click)="run()">Run</div>
 </div>
 
 <div id="labelContainer">
@@ -23,7 +22,6 @@
 </div>
 
 <div id="ioContainer"> 
-  <textarea id="input" class="io-block"></textarea>
+  <textarea id="input" class="io-block" [(ngModel)]="customInput"></textarea>
   <textarea id="output" class="io-block"></textarea>
-
 </div>
