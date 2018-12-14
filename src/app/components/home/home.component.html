@@ -12,6 +12,9 @@
 <app-add-new-question id="add-new-question" class="main-content" *ngIf="navigateService.selectedTarget == 'add-new-question'"></app-add-new-question>
 <!-- <app-add-new-question id="add-new-question" class="main-content"></app-add-new-question> -->
 
+<!-- TEACHER: NEW QUIZ FORM -->
+<app-add-new-quiz class="main-content" *ngIf="navigateService.selectedTarget == 'add-new-quiz'"></app-add-new-quiz>
+
 <!-- TEACHER: ACCOUNT PAGE -->
 <app-content-teacher-account class="main-content" *ngIf="navigateService.selectedTarget == 'content-teacher-account'"></app-content-teacher-account>
 

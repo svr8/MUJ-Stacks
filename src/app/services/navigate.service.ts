@@ -22,6 +22,7 @@ export class NavigateService {
       'content-teacher-questions': 'problems',
       'add-new-question': 'new-problem',
       'content-teacher-account': 'account',
+      'add-new-quiz': 'new-quiz',
     };
   }
 

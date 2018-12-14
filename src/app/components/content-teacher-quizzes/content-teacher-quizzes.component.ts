@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigateService } from 'src/app/services/navigate.service';
 
 @Component({
   selector: 'app-content-teacher-quizzes',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentTeacherQuizzesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public navigator: NavigateService) { }
 
   ngOnInit() {
   }
