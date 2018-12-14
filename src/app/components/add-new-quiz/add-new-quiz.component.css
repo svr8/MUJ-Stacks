@@ -1,0 +1,137 @@
+.v-item:first-child {
+  margin-top: 30px;
+  margin-left: 30px;
+
+}
+.question-input {
+  width: 95%;
+  height: auto;
+  /* border: 1px solid black; */
+
+  padding: 5px;
+}
+.question-input-label {
+  margin-right: 20px;
+  padding: 5px;
+}
+.question-input-line {
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  border-bottom: 1px solid #C8C8C8;
+  padding: 5px;
+  
+  font-family: DefaultFont;
+
+  transition: 0.6s;
+}
+
+.question-input-box {
+  width: 300px;
+  height: 150px;
+
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #C8C8C8;
+  padding: 5px;
+  
+  font-family: DefaultFont;
+  font-size: 2.5vh;
+
+  transition: 0.6s;
+}
+.question-input-line:focus, .question-input-box:focus, .question-constraint-input:focus {
+  border-color: black;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  z-index: 0;
+}
+
+td {
+  vertical-align: top;
+  text-align: left;
+}
+
+.question-constraint-input {
+  width: 300px; 
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #C8C8C8;
+  padding: 5px;
+  
+  font-family: DefaultFont;
+  font-size: 2.5vh;
+
+  transition: 0.6s;
+}
+
+.question-io-box {
+  width: 300px; 
+  height: 80px;  
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #C8C8C8;
+  padding: 5px;
+  
+  font-family: DefaultFont;
+  font-size: 2.5vh;
+
+  transition: 0.6s;
+}
+
+.question-constraint-input:focus, .question-io-box:focus {
+  border: 1px solid black;
+}
+
+.add-item-btn {
+  position: relative;
+  top: -2px;
+  width: 112px;
+  height: 42px;
+  background-image: url('../../../assets/images/addConstraint.png');
+  background-color: rgb(122, 122, 122);
+  background-size: cover;
+  transition: 0.6s;
+}
+
+.add-item-btn:hover {
+  cursor: pointer;
+  background-color: rgb(173, 173, 173);
+}
+
+.delete-item-btn {
+  position: relative;
+  top: 5px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  background-image: url('../../../assets/images/baseline_close_black_18dp.png');
+  background-size: cover;
+}
+.delete-item-btn:hover {
+  cursor: pointer;
+}
+
+#submit-question-btn {
+  position: relative;
+  background-color: #B33333;
+  padding: 15px;
+
+  text-align: center;
+
+  color: white;
+  transition: 0.6s;
+}
+
+#submit-question-btn:hover {
+  cursor: pointer;
+  background-color: rgb(214, 45, 45);
+}
+
+app-content-teacher-questions {
+  top: 0px;
+  left: 50%;
+}

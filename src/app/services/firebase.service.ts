@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AccountBrief } from '../components/main-content/teacher/account';
 import { Question } from '../components/main-content/question';
 import { NavigateService } from './navigate.service';
+import { Quiz } from '../components/main-content/quiz';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,56 @@ export class FirebaseService {
     });
   }
 
+  async getQuiz(id, callback) {
+    let quiz = await this.db.object(`quiz/${id}`);
+    
+    quiz.valueChanges().subscribe(item => {
+      callback(item);
+    });
+  }
+
+  async deleteQuiz(id) {
+    const quizRef = await this.db.list('/quiz');
+    await quizRef.set(id, null);
+  }
+  removeQuizID(qid: string) {
+    let uid = localStorage.getItem('uid');
+   this.db.object(`users/${uid}/quizID/${qid}`).remove();
+  }
+
+  async getQuizIDList(callback) {
+    let uid = localStorage.getItem('uid');
+    let quizIDRef = await this.db.object(`users/${uid}/quizID`);
+    let _this = this;
+    quizIDRef.valueChanges().subscribe(item => {
+      callback(item);
+    });
+  }
+
+  uploadQuiz(quiz: Quiz, callback) {
+
+    // Upload Quiz
+    let quizRef = this.db.list('/quiz');
+    quizRef.set(quiz.id, quiz);
+    
+    let _this = this;
+    let flag = true;
+
+    // Update Current User's QID List
+    this.getQuizIDList(function(list) {
+      if(!list) list = [];
+      if(!flag) return;
+      flag = false;
+      // if(!_this.homeNavigator.editQuestionStatus) {
+        let uid = localStorage.getItem('uid');
+        let quizIDListRef = _this.db.list(`users/${uid}/quizID`);
+        list[`${list.length}`] = quiz.id;
+        quizIDListRef.set(`${list.length}`, quiz.id);
+      // }
+      callback();
+    });
+  }
+
   async getQuestion(qid, callback) {
     let question =  await this.db.object(`questions/${qid}`);
     
@@ -61,6 +112,11 @@ export class FirebaseService {
     await questionRef.set(qid, null);
   }
 
+  removeQuestionID(qid: string) {
+    let uid = localStorage.getItem('uid');
+   this.db.object(`users/${uid}/qid/${qid}`).remove();
+  }
+
   async getQuestionIDList(callback) {
     let uid = localStorage.getItem('uid');
     let qidRef = await this.db.object(`users/${uid}/qid`);
@@ -69,12 +125,6 @@ export class FirebaseService {
       callback(item);
     });
   }
-
-  removeQuestionID(qid: string) {
-    let uid = localStorage.getItem('uid');
-   this.db.object(`users/${uid}/qid/${qid}`).remove();
-  }
- 
 
   uploadQuestion(question: Question, callback) {
 

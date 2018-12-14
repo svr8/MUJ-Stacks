@@ -1,3 +1,64 @@
-<p>
-  add-new-quiz works!
-</p>
+<table class="v-item">
+  <tr>
+    <td>
+      <table>
+        <!-- QUIZ TITLE -->
+        <tr>
+          <td class="question-input-label">TITLE</td>
+          <td> <input class="question-input-line" [(ngModel)]="quiz.title"> </td>
+        </tr>
+
+        <!-- QUIZ ID -->
+        <tr>
+          <td class="question-input-label">QUIZ ID</td>
+          <td> <input class="question-input-line" [(ngModel)]="quiz.id"> </td>
+        </tr>
+        
+        <!-- QUIZ DESCRIPTION -->
+        <tr>
+          <td class="question-input-label">DESCRIPTION</td>
+          <td><textarea class="question-input-box" [(ngModel)]="quiz.description"></textarea></td>
+        </tr>
+        
+        <!-- QUIZ DATE -->
+        <tr>
+          <td class="question-input-label">DATE</td>
+          <td> <input class="question-input-line" type="date" [(ngModel)]="quiz.date"> </td>
+        </tr>
+
+        <!-- QUIZ DURATION -->
+        <tr>
+          <td class="question-input-label">DURATION</td>
+          <td> <input class="question-input-line" type="time" step="1" [(ngModel)]="quiz.duration"> </td>
+        </tr>
+
+        <!-- QUESTIONS -->
+        <tr>
+          <td class="question-input-label">QUESTIONS</td>
+          <td>
+            <table style="position:relative;top:-12px;">
+              <tr>
+                <th>
+                  <div class="add-item-btn" (click)="quiz.addNewQID()"></div>
+                </th>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;{{quiz.questions.length}} added</td>
+              </tr>
+              <tr *ngFor="let qid of quiz.questions; let in=index; trackBy:trackByFn">
+                <td><input class="question-constraint-input" placeholder="Insert Question ID Here" [(ngModel)]="quiz.questions[in]"></td>
+                <td><div class="delete-item-btn" (click)="quiz.deleteQID(qid)"></div></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- SUBMIT BUTTON -->
+        <tr>
+          <td><div id="submit-question-btn" (click)="uploadQuestion()">UPLOAD QUIZ</div></td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <app-content-teacher-questions></app-content-teacher-questions>
+    </td>
+  </tr>
+</table>
