@@ -43,7 +43,7 @@ export class ContentTeacherQuestionsComponent implements OnInit {
             firebase.removeQuestionID(id);
 
             if(_this.questionList.length == 0)
-            _this.questionList.push(emptyQuestionList_Message);
+              _this.questionList.push(emptyQuestionList_Message);
             return;
           }
           // Upadte current questions list

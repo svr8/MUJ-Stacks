@@ -45,7 +45,7 @@ export class AddNewQuizComponent implements OnInit {
     this.checkQuizID(function(isValid) {
       if(!flag) return;
 
-      if(isValid || _this.homeNavigator.editQuestionStatus) {
+      if(isValid) {
         flag = false;
         _this.notifyController.showNotification('Uploading Quiz');
         _this.firebase.uploadQuiz(_this.quiz, function() {
