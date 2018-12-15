@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Question } from '../main-content/question';
 import { NavigateService } from 'src/app/services/navigate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content-question',
@@ -13,7 +14,7 @@ export class ContentQuestionComponent implements OnInit {
   account_type: string;
   question: Question;
 
-  constructor(private firebase: FirebaseService, private homeNavigator: NavigateService) { 
+  constructor(private router: Router, private firebase: FirebaseService, private homeNavigator: NavigateService) { 
     this.question = new Question('', '', '');
     let _this = this;
     firebase.getQuestion(homeNavigator.selectedQID, function(res){

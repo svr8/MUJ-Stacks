@@ -9,7 +9,7 @@
     <th>Title</th>
     <th>Date</th>
   </tr>
-  <tr *ngFor="let quiz of quizList">
+  <tr *ngFor="let quiz of quizList" (click)="navigator.viewQuiz(quiz.id)">
     <td>{{quiz.id}}</td>
     <td>{{quiz.title}}</td>
     <td>{{quiz.date}}</td>

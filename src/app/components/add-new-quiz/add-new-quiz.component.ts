@@ -13,7 +13,6 @@ import { Quiz } from '../main-content/quiz';
 })
 export class AddNewQuizComponent implements OnInit {
 
-  question: Question;
   quiz: Quiz;
 
   constructor(private firebase: FirebaseService, private notifyController: NotificationBarComponent,
@@ -25,7 +24,17 @@ export class AddNewQuizComponent implements OnInit {
    }
 
   ngOnInit() {
-    
+    if(this.homeNavigator.editQuizStatus) {
+      this.autoFillData(this.homeNavigator.selectedQuizID);
+    }
+  }
+
+  autoFillData(id: string) {
+    console.log(`Loading ${id}`);
+    let _this = this;
+    this.firebase.getQuiz(id, function(quiz) {
+      _this.quiz = quiz;
+    }); 
   }
 
   trackByFn(index: any, item: any) {
