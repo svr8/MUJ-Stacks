@@ -19,6 +19,7 @@ export class NavigateService {
     this.selectedTarget = '';
     this.selectedQID = '';
     this.editQuestionStatus = false;
+    this.editQuizStatus = false;
     this.urlMap = {
       'content-teacher-quizzes': 'quiz',
       'add-new-quiz': 'new-quiz',
@@ -54,8 +55,6 @@ export class NavigateService {
     this.editQuestionStatus = true;
     this.selectedQID = qid;
     this.switchTarget('add-new-question');
-    // this.selectedTarget = 'add-new-question';
-    // this.location.go(this.urlMap['add-new-question'], '');
   }
 
   viewQuiz(id: string) {
@@ -67,16 +66,12 @@ export class NavigateService {
   solveQuiz(id: string) {
     this.editQuizStatus = false;
     this.selectedQuizID = id;
-    // this.selectedTarget = 'content-startQuiz';
-    // this.location.go(`livequiz/:${id}`, '');
   }
   switchToEditQuiz(id: string) {
     console.log(`Editing QUIZ ${id}`);
     this.editQuizStatus = true;
     this.selectedQuizID = id;
     this.switchTarget('add-new-quiz');
-    // this.selectedTarget = 'add-new-quiz';
-    // this.location.go(this.urlMap['add-new-quiz'], '');
   }
 
 

@@ -16,7 +16,7 @@ export class ContentQuizComponent implements OnInit {
   quiz: Quiz;
 
   constructor(private router: Router, private firebase: FirebaseService, private homeNavigator: NavigateService) { 
-    this.quiz = new Quiz('', '', '');
+    this.quiz = new Quiz('', '', null, null);
     let _this = this;
     firebase.getQuiz(homeNavigator.selectedQuizID, function(res){
       console.log(res);
@@ -50,6 +50,10 @@ export class ContentQuizComponent implements OnInit {
   startQuiz() {
     console.log(`Start Quiz: ${this.quiz.id}`)
     // window.open(`http://localhost:4200/solution/:${this.quiz.id}`, '_blank');    
+  }
+
+  viewQuestion(qid: string) {
+    window.open(`http://localhost:4200/problems/:${qid}`, '_blank');        
   }
 
 }

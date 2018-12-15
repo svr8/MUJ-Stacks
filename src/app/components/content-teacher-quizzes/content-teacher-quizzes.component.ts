@@ -3,7 +3,7 @@ import { NavigateService } from 'src/app/services/navigate.service';
 import { Quiz } from '../main-content/quiz';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
-const emptyQuizList_Message = new Quiz('-', 'You have not added any quizzes yet.', '-');
+const emptyQuizList_Message = new Quiz('-', 'You have not added any quizzes yet.', '-', '');
 
 @Component({
   selector: 'app-content-teacher-quizzes',
@@ -40,7 +40,7 @@ export class ContentTeacherQuizzesComponent implements OnInit {
             return;
           }
 
-          let quiz = new Quiz(idList[id], res['title'], res['date']);
+          let quiz = new Quiz(idList[id], res['title'], res['startDate'], res['endDate']);
           _this.quizList.push(quiz);
         });
 

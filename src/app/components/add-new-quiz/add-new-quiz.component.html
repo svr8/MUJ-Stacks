@@ -20,16 +20,24 @@
           <td><textarea class="question-input-box" [(ngModel)]="quiz.description"></textarea></td>
         </tr>
         
-        <!-- QUIZ DATE -->
+        <!-- QUIZ START DATE -->
         <tr>
-          <td class="question-input-label">DATE</td>
-          <td> <input class="question-input-line" type="date" [(ngModel)]="quiz.date"> </td>
+          <td class="question-input-label">Starts At</td>
+          <td> DATE: <input class="question-input-line" type="date" [(ngModel)]="startDate"> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>TIME: <input class="question-input-line" type="time" step="1" [(ngModel)]="startTime"> </td>
         </tr>
 
-        <!-- QUIZ DURATION -->
+        <!-- QUIZ END DATE -->
         <tr>
-          <td class="question-input-label">DURATION</td>
-          <td> <input class="question-input-line" type="time" step="1" [(ngModel)]="quiz.duration"> </td>
+          <td class="question-input-label">Ends At</td>
+          <td> DATE: <input class="question-input-line" type="date" [(ngModel)]="endDate"> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>TIME: <input class="question-input-line" type="time" step="1" [(ngModel)]="endTime"> </td>
         </tr>
 
         <!-- QUESTIONS -->

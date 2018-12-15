@@ -7,12 +7,14 @@
   <tr>
     <th>ID</th>
     <th>Title</th>
-    <th>Date</th>
+    <th>Start Date</th>
+    <th>End Date</th>
   </tr>
   <tr *ngFor="let quiz of quizList" (click)="navigator.viewQuiz(quiz.id)">
     <td>{{quiz.id}}</td>
     <td>{{quiz.title}}</td>
-    <td>{{quiz.date}}</td>
+    <td>{{quiz.startDate}}</td>
+    <td>{{quiz.endDate}}</td>
   </tr>
   
 </table>

@@ -5,7 +5,7 @@
             <div *ngIf="account_type=='Teacher'" class="h-item" (click)="editQuiz()">Edit</div>
             <div *ngIf="account_type=='Teacher'" class="h-item" (click)="deleteQuiz()">Delete</div>          
             
-            <div class="h-item" (click)="startQuiz()">Solve</div>          
+            <div class="h-item" (click)="startQuiz()">Start</div>          
           </div>
       </td>
     </tr>
@@ -23,27 +23,35 @@
   
     <tr class="subcontent">
       <td class="subcontent-wrap">
-        <div class="sub-title"> Date </div>
+        <div class="sub-title"> Starts At </div>
         <div class="sub-content"> 
-          {{quiz.date}}
+          {{quiz.startDate}}
+        </div>
+      </td>
+    </tr>
+
+    <tr class="subcontent">
+      <td class="subcontent-wrap">
+        <div class="sub-title"> Ends At </div>
+        <div class="sub-content"> 
+          {{quiz.endDate}}
         </div>
       </td>
     </tr>
   
     <tr class="subcontent">
       <td class="subcontent-wrap">
-        <div class="sub-title"> Duration </div>
         <div class="sub-content"> 
-          {{quiz.duration}}
-        </div>
-      </td>
-    </tr>
-  
-    <tr class="subcontent">
-      <td class="subcontent-wrap">
-        <div class="sub-title"> Questions </div>
-        <div class="sub-content"> 
-          <li *ngFor="let qid of quiz.questions">{{qid}}</li>
+          <!-- <li *ngFor="let qid of quiz.questions">{{qid}}</li> -->
+          <table id="question-list" class="v-item">
+            <tr>
+              <th>Questions</th>
+            </tr>
+            <tr *ngFor="let qid of quiz.questions" (click)="viewQuestion(qid)">
+              <td>{{qid}}</td>
+            </tr>
+            
+          </table>
         </div>
       </td>
     </tr>

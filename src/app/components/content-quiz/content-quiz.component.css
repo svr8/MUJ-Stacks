@@ -40,6 +40,59 @@ table {
   padding-left: 0px;
 }
 
+#question-list {
+  position: relative;
+  width: 95%;
+  border-collapse: collapse;
+
+}
+
+#question-list th {
+  background-color: #CFCFCF;
+}
+
+#question-list tr {
+  position: relative;
+  width: 100%;
+
+  margin: 2px;
+}
+
+#question-list th {
+  padding: 0px 15px 0px 15px;
+  margin: 2px;
+}
+#question-list tr td {
+  padding: 5px 15px 5px 15px;
+  margin: 2px;
+}
+
+#question-list tr {
+  transition: 0.3s;
+  padding: 10px;
+}
+
+
+#question-list tr:hover {
+  cursor: pointer;
+  background-color: rgb(206, 206, 206);
+}
+
+#question-list tr:first-child{
+  cursor: default;
+}
+
+#question-list td:nth-child(3n+1) {  
+  width: 30px;
+}
+#question-list td:nth-child(3n+2) {
+  width: 700px; 
+}
+#question-list td:nth-child(3n+3) {
+  width: 300px;
+}
+
+
 .io {
   background-color: rgb(207, 207, 207);
 }
