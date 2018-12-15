@@ -1,0 +1,21 @@
+
+#toggleContainer {
+  position: absolute;
+  top: 0px; 
+  left: 40%;
+  z-index: 2;
+}
+
+.toggleButton {
+  background-color: rgb(168, 168, 168);
+  display: inline-block;
+  padding: 5px;
+}
+
+.toggleButton:hover {
+  background-color: rgb(223, 223, 223);
+  cursor: pointer;
+}
+#editorWidget {
+  overflow-y: hidden;
+}

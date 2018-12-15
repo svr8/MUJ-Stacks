@@ -13,6 +13,34 @@ export class Quiz {
     this.questions = [];
   }
 
+  getStartTime(): string { 
+    return this.extractTime(this.startDate);
+  }
+  getEndTime(): string {
+    return this.extractTime(this.endDate);
+  }
+  getStartDate(): string {
+    return this.extractDate(this.startDate);
+  }
+  getEndDate(): string {
+    return this.extractDate(this.endDate);
+  }
+
+  extractTime(fullDate: string): string {
+    let dateOb = new Date(fullDate);
+    let seconds = dateOb.getUTCSeconds();
+    return dateOb.getUTCHours() + ':' +
+           dateOb.getUTCMinutes() + ':' +
+           (seconds<10 ? '0' : '') + dateOb.getUTCSeconds();
+  }
+
+  extractDate(fullDate: string): string {
+    let dateOb = new Date(fullDate);
+    return dateOb.getUTCDate() + '/' +
+           dateOb.getUTCMonth() + '/' +
+           dateOb.getUTCFullYear() ;
+  }
+
   setDetails(details) {
     this.title = details['title'];
     this.id = details['id'];

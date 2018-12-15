@@ -1,3 +1,4 @@
+
 .editor-container {
   position: relative;
   top: 0px;
@@ -57,7 +58,7 @@
   transform: translate(0, -20%);
   display: inline-block;
   width: 48%;
-  font-size: 2vh;
+  font-size: 2.1vh;
   text-align: center;
 }
 #ioContainer {

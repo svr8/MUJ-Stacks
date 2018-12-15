@@ -4,7 +4,9 @@ import { Quiz } from '../main-content/quiz';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 const emptyQuizList_Message = new Quiz('-', 'You have not added any quizzes yet.', '-', '');
-
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 @Component({
   selector: 'app-content-teacher-quizzes',
   templateUrl: './content-teacher-quizzes.component.html',
@@ -47,8 +49,6 @@ export class ContentTeacherQuizzesComponent implements OnInit {
       }
 
     });
-
-    
   }
 
   ngOnInit() {

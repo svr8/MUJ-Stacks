@@ -13,6 +13,7 @@ export class ContentQuestionComponent implements OnInit {
 
   account_type: string;
   question: Question;
+  
 
   constructor(private router: Router, private firebase: FirebaseService, private homeNavigator: NavigateService) { 
     this.question = new Question('', '', '');
@@ -37,6 +38,7 @@ export class ContentQuestionComponent implements OnInit {
   ngOnInit() {
   }
 
+  
   editQuestion() {
     this.homeNavigator.switchToEditQuestion(this.question.qid);
   }

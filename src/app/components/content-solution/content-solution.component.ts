@@ -26,6 +26,7 @@ export class ContentSolutionComponent implements OnInit {
   hasCustomInput: boolean;
   customInput: string;
 
+
   constructor(private navigator: NavigateService,
               private firebase: FirebaseService,
               private router: Router) {
@@ -37,7 +38,6 @@ export class ContentSolutionComponent implements OnInit {
     this.hasCustomInput = false;
     this.options = {enableBasicAutocompletion: true,enableSnippets: true,enableLiveAutocompletion: true,autoScrollEditorIntoView: true,showPrintMargin: false,fontSize: '20px'};
 
-
     firebase.getQuestion(qid, function(res) {
       _this.question = new Question(qid, res['title'], res['language']);
       _this.language = res['language'];
@@ -45,8 +45,8 @@ export class ContentSolutionComponent implements OnInit {
   }
 
   ngOnInit() {
-    
   }
+
 
   compile() {
     console.log(`Compiling ${this.question.qid}`);
