@@ -37,25 +37,24 @@
     </td>
   </tr>
 
-  <div class="sub-content io" *ngFor="let case of question.sampleCase; let in=index">
-    <!-- SAMPLE INPUT -->
+  <div class="sub-content" *ngFor="let case of question.sampleCase; let in=index">
     <tr>
-      <td class="subcontent-wrap">
+      <td class="subcontent-wrap io">
+        <!-- SAMPLE INPUT -->
         <div class="sub-title"> Sample Input {{in+1}} </div>
-        <div class="sub-content"> 
+        <div class="sub-content" style="white-space: pre-wrap;"> 
+          {{case.input}}
+        </div>
+      </td>
+      <td class="subcontent-wrap io" style="display:inline-block; margin-left: 5px;">
+        <!-- SAMPLE OUTPUT -->
+        <div class="sub-title"> Sample Output {{in+1}} </div>
+        <div class="sub-content" style="white-space: pre-wrap;"> 
           {{case.input}}
         </div>
       </td>
     </tr>
     
-    <!-- SAMPLE OUTPUT -->
-    <tr>
-      <td class="subcontent-wrap">
-        <div class="sub-title"> Sample Output {{in+1}} </div>
-        <div class="sub-content"> 
-          {{case.output}}
-        </div>
-      </td>
-    </tr>
+    
   </div>
 </table>

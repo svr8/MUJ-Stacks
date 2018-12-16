@@ -38,6 +38,13 @@ export class ContentQuestionComponent implements OnInit {
   ngOnInit() {
   }
 
+  formatLineChange(text: string): string {
+    let res = text;
+    while(res.indexOf("\n")!=-1)
+      res = res.replace("\n", "<br/>");
+    return res;
+  }
+
   
   editQuestion() {
     this.homeNavigator.switchToEditQuestion(this.question.qid);
