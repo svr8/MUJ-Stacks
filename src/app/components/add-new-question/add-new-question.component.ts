@@ -19,7 +19,7 @@ export class AddNewQuestionComponent implements OnInit {
     
     if(homeNavigator.accountType != 'Teacher')
         homeNavigator.switchTarget('content-teacher-quizzes');
-        this.question = new Question('', '', '');
+        this.question = new Question('', '', 'Select Language');
    }
 
   ngOnInit() {
@@ -39,6 +39,20 @@ export class AddNewQuestionComponent implements OnInit {
 
   trackByFn(index: any, item: any) {
     return index;
+  }
+
+  showLanguageOptions() {
+    let el = document.getElementById('language-optionContainer');
+    el.style.display = 'block';
+  }
+  hideLanguageOptions() {
+    let el = document.getElementById('language-optionContainer');
+    el.style.display = 'none';
+  }
+
+  selectLanguage(language: string) {
+    this.question.language = language;
+    this.hideLanguageOptions();
   }
 
   checkQuestionID(callback) {

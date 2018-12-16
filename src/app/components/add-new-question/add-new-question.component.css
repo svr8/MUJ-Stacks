@@ -85,6 +85,41 @@ td {
   border: 1px solid black;
 }
 
+#language {
+  padding: 7px;
+  display: inline-block;
+}
+#language:hover {
+  cursor: pointer;
+}
+#language-option-label {
+  padding: 7px;
+}
+#language-option-label:hover {
+  background: #C8C8C8;
+}
+#language-optionContainer {
+  margin-top: 2px;
+  display: none;
+}
+.language-option {
+  padding: 2px;
+}
+.language-option:hover {
+  background: #C8C8C8;
+}
+
+i {
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 .add-item-btn {
   position: relative;
   top: -2px;

@@ -14,16 +14,21 @@ export class Quiz {
   }
 
   getStartTime(): string { 
-    return this.extractTime(this.startDate);
+    let time = this.extractTime(this.startDate);
+    return time == 'NaN:NaN:NaN' ? '' : time;
   }
   getEndTime(): string {
-    return this.extractTime(this.endDate);
+    let time = this.extractTime(this.endDate);
+    return time == 'NaN:NaN:NaN' ? '' : time;
+
   }
   getStartDate(): string {
-    return this.extractDate(this.startDate);
+    let date = this.extractDate(this.startDate);
+    return date == 'NaN/NaN/NaN' ? '' : date;
   }
   getEndDate(): string {
-    return this.extractDate(this.endDate);
+    let date = this.extractDate(this.endDate);
+    return date == 'NaN/NaN/NaN' ? '' : date;
   }
 
   extractTime(fullDate: string): string {

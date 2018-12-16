@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 //import { AceEditorModule } from 'ng2-ace-editor';
-import 'brace/mode/java';
+
 import 'brace/ext/language_tools';
+
+import 'brace/mode/java';
+import 'brace/mode/c_cpp';
+import 'brace/mode/java';
+import 'brace/mode/python';
+
 import 'brace/snippets/text';
 import 'brace/snippets/java';
 import 'brace/snippets/c_cpp';
@@ -11,6 +17,13 @@ import { NavigateService } from 'src/app/services/navigate.service';
 import { Question } from '../main-content/question';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Router } from '@angular/router';
+
+const editorMode = {
+  'Java': 'java',
+  'C': 'c_cpp',
+  'C++': 'c_cpp',
+  'Python': 'python'
+};
 
 @Component({
   selector: 'app-content-solution',
@@ -28,7 +41,6 @@ export class ContentSolutionComponent implements OnInit {
   isQuiz: boolean;
   quizID: string;
 
-
   constructor(private navigator: NavigateService,
               private firebase: FirebaseService,
               private router: Router) {
@@ -43,10 +55,11 @@ export class ContentSolutionComponent implements OnInit {
 
     firebase.getQuestion(this.question.qid, function(res) {
       _this.question = new Question(_this.question.qid, res['title'], res['language']);
-      _this.language = res['language'];
+      _this.language = editorMode[ res['language'] ];
     });
 
   }
+
 
   getIDs() {
     const url = this.router.url;

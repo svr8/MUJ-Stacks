@@ -15,7 +15,17 @@
   <!-- LANGUAGE -->
   <tr>
     <td class="question-input-label">LANGUAGE</td>
-    <td> <input class="question-input-line" [(ngModel)]="question.language"> </td>
+    <td class="question-input-label"> 
+      <div id="language">
+        <span id="language-option-label" (click)="showLanguageOptions()">{{question.language}}&nbsp;&nbsp;<i class="arrow down"></i></span>
+        <div id="language-optionContainer">
+          <div class="language-option" (click)="selectLanguage('C')">C</div>
+          <div class="language-option" (click)="selectLanguage('C++')">C++</div>
+          <div class="language-option" (click)="selectLanguage('Java')">Java</div>
+          <div class="language-option" (click)="selectLanguage('Python')">Python</div>
+        </div>
+      </div>
+    </td>
   </tr>
   
   <!-- QUESTION DESCRIPTION -->
