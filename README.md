@@ -5,6 +5,7 @@
 
 ## Preview
 ![Register](https://github.com/svr8/MUJ-Stacks/blob/master/Screenshots/login.png)
+![QuestionView](https://github.com/svr8/MUJ-Stacks/blob/master/Screenshots/questionView.png)
 ![QuestionCreate](https://github.com/svr8/MUJ-Stacks/blob/master/Screenshots/questionCreate.png)
 ![Question](https://github.com/svr8/MUJ-Stacks/blob/master/Screenshots/question.png)
 ![Editor](https://github.com/svr8/MUJ-Stacks/blob/master/Screenshots/Editor.png)
