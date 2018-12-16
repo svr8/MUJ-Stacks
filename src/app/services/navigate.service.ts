@@ -44,6 +44,15 @@ export class NavigateService {
     this.selectedTarget = 'content-question';
     this.location.go(`problems/:${qid}`, '');
   }
+
+  viewQuizQuestion(quizId: string, qid: string) {
+    console.log(`VIEW QUIZ QUESTION ${quizId}-->${qid}`);
+    this.editQuestionStatus = false;
+    this.selectedQID = qid;
+    this.selectedTarget = 'content-question';
+    this.location.go(`quiz/:${quizId}:${qid}`, '');
+  }
+
   solveQuestion(qid: string) {
     this.editQuestionStatus = false;
     this.selectedQID = qid;

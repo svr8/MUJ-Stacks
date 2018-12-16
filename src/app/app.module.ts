@@ -40,6 +40,7 @@ const appRoutes: Routes = [
   { path: 'problems/:id', component: HomeComponent },
   { path: 'solution/:id', component: HomeComponent },
   { path: 'quiz/:id', component: HomeComponent },
+  { path: 'quiz/:id/:id', component: HomeComponent },
   { path: 'new-problem', component: HomeComponent },
   { path: 'new-quiz', component: HomeComponent },
   { path: 'account', component: HomeComponent },

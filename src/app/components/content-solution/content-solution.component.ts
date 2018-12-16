@@ -25,28 +25,48 @@ export class ContentSolutionComponent implements OnInit {
   language: string;
   hasCustomInput: boolean;
   customInput: string;
+  isQuiz: boolean;
+  quizID: string;
 
 
   constructor(private navigator: NavigateService,
               private firebase: FirebaseService,
               private router: Router) {
-    const url = this.router.url;
-    const qid = url.substring( url.indexOf(':')+1 );
     const _this = this;
     
     this.language = 'text';
     this.hasCustomInput = false;
     this.options = {enableBasicAutocompletion: true,enableSnippets: true,enableLiveAutocompletion: true,autoScrollEditorIntoView: true,showPrintMargin: false,fontSize: '20px'};
+    this.question = new Question('', '', '');
+    
+    this.getIDs();
 
-    firebase.getQuestion(qid, function(res) {
-      _this.question = new Question(qid, res['title'], res['language']);
+    firebase.getQuestion(this.question.qid, function(res) {
+      _this.question = new Question(_this.question.qid, res['title'], res['language']);
       _this.language = res['language'];
     });
+
+  }
+
+  getIDs() {
+    const url = this.router.url;
+    const index1 = url.indexOf(":"); // /problems/:PROBLEM_ID
+    const index2 = url.indexOf(":", index1+1); // /quiz/:QUIZ_ID/:PROBLEM_ID
+    if(index2 == -1) {
+      this.isQuiz = false;
+      this.question.qid = url.substring(index1+1);
+    }
+    else {
+      this.quizID = url.substring(index1+1, index2);
+      this.question.qid = url.substring(index2+1);
+      
+      //TODO: Check Time
+      this.isQuiz = true;
+    }
   }
 
   ngOnInit() {
   }
-
 
   compile() {
     console.log(`Compiling ${this.question.qid}`);
@@ -54,10 +74,15 @@ export class ContentSolutionComponent implements OnInit {
   }
 
   run() {
+    if(this.isQuiz) 
+      console.log(`QUIZ: ${this.quizID}`);
+    
     console.log(`Running ${this.question.qid}`);
     console.log(this.data);
-    console.log(this.hasCustomInput);
-    console.log(this.customInput);
+    
+    if(this.hasCustomInput)
+      console.log('CUSTOM INPUT: ' + this.customInput);
+    console.log('isQuizSubmition: ' + this.isQuiz);
   }
 
   // onChange($event) {

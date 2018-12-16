@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content-problem',
@@ -10,7 +11,8 @@ export class ContentProblemComponent implements OnInit {
   problemWidget: any;
   editorWidget: any;
 
-  constructor() { 
+  constructor() {
+    
   }
 
   showProblem() { 

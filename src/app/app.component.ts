@@ -40,8 +40,18 @@ export class AppComponent {
     else if(this.hasURLPrefix(prefix_solution)) 
       this.homeNavigator.solveQuestion(this.getIDfromURL(url));
      
-    else if(this.hasURLPrefix(prefix_quiz)) 
-       this.homeNavigator.viewQuiz( this.getIDfromURL(url) );
+    else if(this.hasURLPrefix(prefix_quiz)) {
+      let index1 = url.indexOf(":");
+      let index2 = url.indexOf(":", index1+1);
+
+      if(index2==-1)
+        this.homeNavigator.viewQuiz( this.getIDfromURL(url) );
+      else {
+        let quizID = url.substring(index1+1, index2),
+            questionID = url.substring(index2+1);
+        this.homeNavigator.viewQuizQuestion(quizID, questionID);
+      }
+    }
     
     else {
       const suffix = url.substring( 1 );
