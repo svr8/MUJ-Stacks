@@ -14,6 +14,7 @@ export class ContentQuizComponent implements OnInit {
 
   account_type: string;
   quiz: Quiz;
+  showQuestionStatus: boolean;
 
   constructor(private router: Router, private firebase: FirebaseService, private homeNavigator: NavigateService) { 
     this.quiz = new Quiz('', '', null, null);
@@ -24,6 +25,12 @@ export class ContentQuizComponent implements OnInit {
         _this.quiz.setDetails(res);
       else
         homeNavigator.switchTarget('content-teacher-quizzes');
+      
+
+      let curDate = new Date();
+      let startDate = new Date(_this.quiz.startDate);
+      _this.showQuestionStatus = (curDate>=startDate) ;
+      console.log(_this.showQuestionStatus);
     });
 
     this.account_type = homeNavigator.accountType;

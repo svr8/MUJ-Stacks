@@ -84,19 +84,20 @@ export class FirebaseService {
     let _this = this;
     let flag = true;
 
-    // Update Current User's QID List
-    this.getQuizIDList(function(list) {
-      if(!list) list = [];
-      if(!flag) return;
-      flag = false;
-      // if(!_this.homeNavigator.editQuestionStatus) {
+    if(!_this.homeNavigator.editQuizStatus)
+      // Update Current User's QID List
+      this.getQuizIDList(function(list) {
+        if(!list) list = [];
+        if(!flag) return;
+        flag = false;
         let uid = localStorage.getItem('uid');
         let quizIDListRef = _this.db.list(`users/${uid}/quizID`);
         list[`${list.length}`] = quiz.id;
         quizIDListRef.set(`${list.length}`, quiz.id);
-      // }
+        callback();
+      });
+    else
       callback();
-    });
   }
 
   async getQuestion(qid, callback) {

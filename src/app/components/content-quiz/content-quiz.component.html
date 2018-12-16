@@ -47,9 +47,11 @@
             <tr>
               <th>Questions</th>
             </tr>
+            <span *ngIf="showQuestionStatus">
             <tr *ngFor="let qid of quiz.questions" (click)="viewQuestion(qid)">
               <td>{{qid}}</td>
             </tr>
+            </span>
             
           </table>
         </div>

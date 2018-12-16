@@ -102,8 +102,9 @@ export class AddNewQuizComponent implements OnInit {
           flag = false;
           _this.notifyController.showNotification('Uploading Quiz');
           _this.firebase.uploadQuiz(_this.quiz, function() {
-          _this.notifyController.showNotification('Quiz uploaded successfully.');
-          _this.homeNavigator.viewQuiz(_this.quiz.id);
+            _this.notifyController.showNotification('Quiz uploaded successfully.');
+            _this.homeNavigator.viewQuiz(_this.quiz.id);
+            _this.homeNavigator.editQuestionStatus = false;
         });
       }
       else {
