@@ -151,7 +151,7 @@ i {
 
 #submit-question-btn {
   position: relative;
-  background-color: #B33333;
+  background-color: rgb(59,59,59);
   padding: 15px;
 
   text-align: center;
@@ -162,5 +162,5 @@ i {
 
 #submit-question-btn:hover {
   cursor: pointer;
-  background-color: rgb(214, 45, 45);
+  background-color: rgb(90, 90, 90);
 }

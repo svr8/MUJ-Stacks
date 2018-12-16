@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import 'brace/ext/language_tools';
 
+import 'brace/mode/text';
 import 'brace/mode/java';
 import 'brace/mode/c_cpp';
 import 'brace/mode/java';

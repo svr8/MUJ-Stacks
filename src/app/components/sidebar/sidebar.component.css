@@ -6,7 +6,8 @@
   width: 15%;
   height: 100%;
 
-  background-color: #443E57;
+  /* background-color: #443E57; */
+  background-color: rgb(59, 59, 59);
 
   overflow: hidden;
   
@@ -24,19 +25,19 @@
 #sidebarSeg_top 
 {
   top: 0px;
-  background: red;
+  background: transparent;
 }
 #sidebarSeg_mid
 {
   position: relative;
   top: 20px;
-  background: green;
+  /* background: green; */
 }
 #sidebarSeg_btm
 {
   position: absolute;
   bottom: 0px;
-  background: blue;
+  /* background: blue; */
 }
 
 .sidebar-button
@@ -52,13 +53,13 @@
   vertical-align: middle;
   line-height: 2.5vh;
 
-  padding: 5px 0px 5px 0px;
-  background-color: #C12020;
+  color: white;
+  padding: 20px 0px 20px 0px;
 
-  transition: 0.4s;
+  transition: 0.25s;
 }
 
 .sidebar-button:hover {
-  background-color: rgb(214, 46, 46);
+  background-color: rgb(90, 90, 90);
   cursor: pointer;
 }

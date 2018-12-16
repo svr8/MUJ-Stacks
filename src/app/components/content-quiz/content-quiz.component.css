@@ -22,7 +22,8 @@ table {
   display: inline-block;
   margin: 2px;
   padding: 5px;
-  background: rgb(238, 96, 96);
+  background: rgb(59, 59, 59);
+  color: white;
 
   transition: 0.4s;
 }
@@ -32,7 +33,7 @@ table {
 
 .question-options .h-item:hover {
   cursor: pointer;
-  background: rgb(223, 54, 54); 
+  background: rgb(90, 90, 90); 
 }
 
 .question-options {

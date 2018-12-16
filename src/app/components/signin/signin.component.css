@@ -10,6 +10,7 @@
 /* PARTITIONS */
 body {
   position: relative;
+
 }
 .register-wrap {
   position: absolute;
@@ -17,6 +18,9 @@ body {
   left: 0px;
   width: 100%;
   height: 100%;
+
+  background-image: url('../../../assets/images/register-cover5.jpg');
+  background-size: cover; 
 
   padding: 0;
   overflow: hidden;
@@ -26,29 +30,34 @@ body {
 .register-block {
   float: left;
   position: relative;
-  width: 50%;
+  /* width: 50%; */
   height: 100%;
 }
 
 #register-cover {
-  background: #BC4052;
+  /* background: #BC4052; */
+  width: 60%;
+
 }
 #register-content {
-  background: #443E57;
+  background: rgba(230, 230, 230, 1);
+  width: 40%;
+  
 }
 
 /* TOGGLE BUTTONS  */
 .register-toggle-wrap {
   position: relative;
   top: 10%;
-  left: 65%;
+  left: 35%;
   width: 15vw;
   height: 1vh;
 
   min-width: 130px;
   min-height: 25px; 
 
-  background: #70688D;
+  /* background: #70688D; */
+  background: black;
   border-radius: 12px;
   overflow: hidden;
 
@@ -64,7 +73,8 @@ body {
   left: 0px;
   width: 50%;
   height: 100%;
-  background: #BC4052;
+  /* background: #BC4052; */
+  background: gray;
 
   z-index: 1;
 }
@@ -73,6 +83,8 @@ body {
   position: relative;
   height: 100%;
   width: 50%;
+
+  color: white;
 
   padding-top: 1px;
   text-align: center;
@@ -84,9 +96,9 @@ body {
   z-index: 2;
   transition: 0.3s;
 }
-.register-toggle-button-select {
-  color: white;
-}
+/* .register-toggle-button-select { */
+  /* color: white; */
+/* } */
 
 #register-toggle-signin {
   float: left;
@@ -101,7 +113,8 @@ body {
   overflow: hidden;
 }
 .register-form-content ul li {
-  color: #AAAAAA;
+  /* color: #AAAAAA; */
+  color: rgb(83, 83, 83);
   position: relative;
   float: left;
   width: 35%;
@@ -125,6 +138,8 @@ body {
   height: 30px;
   z-index: 9;
   cursor: pointer;
+
+  transition: all 0.25s linear;
   -webkit-transition: all 0.25s linear;
 }
 
@@ -133,7 +148,8 @@ body {
 }
 
 .register-form-content ul li:hover label{
-	color: #FFFFFF;
+  /* color: #FFFFFF; */
+  color: black;
 }
 
 .register-form-content ul li .check{
@@ -151,16 +167,19 @@ body {
 }
 
 .register-form-content ul li:hover .check {
-  border: 5px solid #FFFFFF;
+  /* border: 5px solid #FFFFFF; */
+  border: 5px solid black;
 }
 
 
 .register-form-content input[type=radio]:checked ~ .check {
-  border: 5px solid #FFFFFF;
+  /* border: 5px solid #FFFFFF; */
+  border: 5px solid black;
 }
 
 .register-form-content input[type=radio]:checked ~ label{
-  color: #FFFFFF;
+  /* color: #FFFFFF; */
+  color: black;
 }
 
 @media only screen and (max-width: 600px) {
@@ -212,11 +231,13 @@ body {
 }
 
 #register-form-wrap .inputField {
-  color: white;
+  /* color: white; */
+  color: black;
   background: transparent;
   outline: none;
   border: none;
-  border-bottom: 1px solid white;
+  /* border-bottom: 1px solid white; */
+  border-bottom: 1px solid black;
 
   font-family: DefaultFont;
   font-size: 3vh;
@@ -241,8 +262,10 @@ body {
   color: white;
   outline: none;
   border: none;
-  background: #240b36;
-  border: 1px solid #240b36;
+  /* background: #240b36; */
+  /* border: 1px solid #240b36; */
+  background: black; 
+  /* border: 1px solid black; */
 
   font-family: DefaultFont;
   font-size: 3vh;
@@ -252,18 +275,24 @@ body {
   transition: 0.2s;
 }
 #register-form-wrap .submitBtn:hover {
+  background: gray;
+}
+#register-form-wrap .submitBtn:hover {
   cursor: pointer;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #E9E7E7;
+  /* color: #E9E7E7; */
+  color: black;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #E9E7E7;
+  /* color: #E9E7E7; */
+  color: black;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: #E9E7E7;
+  /* color: #E9E7E7; */
+  color: black;
 }
