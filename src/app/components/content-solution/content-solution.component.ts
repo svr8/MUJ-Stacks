@@ -17,6 +17,7 @@ import { NavigateService } from 'src/app/services/navigate.service';
 import { Question } from '../main-content/question';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Router } from '@angular/router';
+import { Quiz } from '../main-content/quiz';
 
 const editorMode = {
   'Java': 'java',
@@ -73,8 +74,17 @@ export class ContentSolutionComponent implements OnInit {
       this.quizID = url.substring(index1+1, index2);
       this.question.qid = url.substring(index2+1);
       
-      //TODO: Check Time
-      this.isQuiz = true;
+      // Check Time
+      this.firebase.getQuiz(this.quizID, function(res) {
+
+        let quiz = new Quiz('', '', '', '');
+        quiz.setDetails(res);
+
+        let curDate = new Date();
+        let startDate = new Date(quiz.startDate);
+        let endDate = new Date(quiz.endDate);
+        this.isQuiz = (curDate>=startDate && curDate<=endDate) ;
+      });
     }
   }
 
