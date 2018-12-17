@@ -46,7 +46,6 @@ const appRoutes: Routes = [
   { path: 'account', component: HomeComponent },
   { path: 'register', component: SigninComponent },
   { path: 'solution', component: HomeComponent },
-  { path: 'MUJ-Stacks', component: HomeComponent },
 ]
 
 @NgModule({
