@@ -45,7 +45,8 @@ const appRoutes: Routes = [
   { path: 'new-quiz', component: HomeComponent },
   { path: 'account', component: HomeComponent },
   { path: 'register', component: SigninComponent },
-  { path: 'solution', component: HomeComponent }
+  { path: 'solution', component: HomeComponent },
+  { path: 'MUJ-Stacks', component: HomeComponent },
 ]
 
 @NgModule({
