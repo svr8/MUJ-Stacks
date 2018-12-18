@@ -60,7 +60,7 @@ export class ContentQuizComponent implements OnInit {
   }
 
   viewQuestion(qid: string) {
-    window.open(`http://localhost:4200/quiz/:${this.quiz.id}/:${qid}`, '_blank');        
+    window.open(`quiz/:${this.quiz.id}/:${qid}`, '_blank');        
   }
 
 }
