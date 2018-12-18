@@ -56,7 +56,7 @@ export class ContentQuestionComponent implements OnInit {
   solveQuestion() {
     console.log(`Solve Question: ${this.question.qid}`)
     // this.homeNavigator.solveQuestion(this.question.qid);
-    window.open(`http://localhost:4200/solution/:${this.question.qid}`, '_blank');    
+    window.open(`solution/:${this.question.qid}`, '_blank');    
   }
 
 }

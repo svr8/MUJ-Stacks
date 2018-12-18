@@ -16,6 +16,7 @@ table {
 }
 .sub-content {
   margin-top: 5px;
+  white-space: pre-wrap;
 }
 
 .question-options .h-item {
