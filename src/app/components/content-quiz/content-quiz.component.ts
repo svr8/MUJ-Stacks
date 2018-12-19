@@ -54,11 +54,6 @@ export class ContentQuizComponent implements OnInit {
     this.homeNavigator.switchTarget('content-teacher-quizzes');
   }
 
-  startQuiz() {
-    console.log(`Start Quiz: ${this.quiz.id}`)
-    // window.open(`http://localhost:4200/solution/:${this.quiz.id}`, '_blank');    
-  }
-
   viewQuestion(qid: string) {
     window.open(`quiz/:${this.quiz.id}/:${qid}`, '_blank');        
   }

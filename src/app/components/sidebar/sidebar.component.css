@@ -1,3 +1,21 @@
+#sidebar-toggle {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  width: 45px;
+  height: 45px;
+
+  background-image: url('../../../assets/images/menu-button-black.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  transition: 0.2s;
+  
+  display: none;
+}
+#sidebar-toggle:hover {
+  cursor: pointer;
+}
 #sidebar
 {
   position: fixed;
@@ -5,13 +23,31 @@
   left: 0px;
   width: 15%;
   height: 100%;
-
-  /* background-color: #443E57; */
-  background-color: rgb(59, 59, 59);
-
-  overflow: hidden;
   
+  display: block;
+  background-color: rgb(59, 59, 59);
+  overflow: hidden;
   font-family: DefaultFont;
+
+  z-index: 1;
+
+  transition: 0.4s;
+}
+
+@media only screen and (max-width: 800px) {
+  #sidebar-toggle {
+    display: block;
+    z-index: 3;
+  }
+  #sidebar {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  #sidebarSeg_mid {
+    top: 40px;
+  }
 }
 
 .sidebarSeg
@@ -20,6 +56,8 @@
   display: block;
   width: 100%;
   height: auto;
+
+  text-align: center;
 }
 
 #sidebarSeg_top 
@@ -31,13 +69,11 @@
 {
   position: relative;
   top: 20px;
-  /* background: green; */
 }
 #sidebarSeg_btm
 {
   position: absolute;
   bottom: 0px;
-  /* background: blue; */
 }
 
 .sidebar-button
@@ -46,12 +82,12 @@
   top: 0px;
   left: 0px;
   width: 100%;
-  height: auto;
-  font-size: 2.5vh;
-
+  height: 2.5vh;
+  
   text-align: center;
   vertical-align: middle;
   line-height: 2.5vh;
+  font-size: 2.5vh;
 
   color: white;
   padding: 20px 0px 20px 0px;

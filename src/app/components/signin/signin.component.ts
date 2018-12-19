@@ -91,7 +91,7 @@ export class SigninComponent implements OnInit {
           {value: '0', duration: swipe_duration},
           {value: '0', duration: swipe_delay},
           {value: '1', duration: swipe_duration}
-        ],        
+        ], 
         easing: 'easeInOutQuint'
       });
     }

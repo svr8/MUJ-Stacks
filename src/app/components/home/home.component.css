@@ -2,7 +2,14 @@
   font-family: KFont;
   src: url('../../../assets/fonts/KoHo-SemiBold.ttf');
 }
-
+#home-wrap {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #ECECEC;
+}
 .main-content
 {
   position: absolute;
@@ -18,6 +25,12 @@
   font-family: DefaultFont;
 
   overflow-y: scroll;
+}
+@media only screen and (max-width: 800px) {
+  .main-content {
+    left: 20px;
+    width: 100%;
+  }
 }
 
 .main-content .v-item {

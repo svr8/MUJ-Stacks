@@ -13,7 +13,7 @@
   <tr *ngFor="let quiz of quizList" (click)="navigator.viewQuiz(quiz.id)">
     <td>{{quiz.id}}</td>
     <td>{{quiz.title}}</td>
-    <td class="timestamp">
+    <td>
       <table>
         <tr><td>{{quiz.getStartDate()}}</td></tr>
         <tr><td>{{quiz.getStartTime()}}</td></tr>

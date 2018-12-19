@@ -4,8 +4,6 @@
           <div class="question-options">
             <div *ngIf="account_type=='Teacher'" class="h-item" (click)="editQuiz()">Edit</div>
             <div *ngIf="account_type=='Teacher'" class="h-item" (click)="deleteQuiz()">Delete</div>          
-            
-            <div class="h-item" (click)="startQuiz()">Start</div>          
           </div>
       </td>
     </tr>
@@ -42,15 +40,14 @@
     <tr class="subcontent">
       <td class="subcontent-wrap">
         <div class="sub-content"> 
-          <!-- <li *ngFor="let qid of quiz.questions">{{qid}}</li> -->
           <table id="question-list" class="v-item">
             <tr>
               <th>Questions</th>
             </tr>
             <span *ngIf="showQuestionStatus">
-            <tr *ngFor="let qid of quiz.questions" (click)="viewQuestion(qid)">
-              <td>{{qid}}</td>
-            </tr>
+              <tr *ngFor="let qid of quiz.questions" (click)="viewQuestion(qid)">
+                <td>{{qid}}</td>
+              </tr>
             </span>
             
           </table>

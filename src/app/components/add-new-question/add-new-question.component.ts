@@ -32,7 +32,8 @@ export class AddNewQuestionComponent implements OnInit {
     console.log(`Loading ${qid}`);
     let _this = this;
     this.firebase.getQuestion(qid, function(question) {
-      _this.question = question;
+      // _this.question = question;
+      _this.question.setDetails(question);
     }); 
   }
 

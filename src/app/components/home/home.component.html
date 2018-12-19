@@ -1,3 +1,5 @@
+<div id="home-wrap">
+
 <app-sidebar (selectTargetEvent)=navigateService.switchTarget($event) *ngIf="account_type" [sidebar_type]="account_type"></app-sidebar>
 
 <!-- TEACHER: QUIZZES LIST -->
@@ -32,3 +34,4 @@
 <app-content-quiz class="main-content" *ngIf="navigateService.selectedTarget == 'content-quiz'"></app-content-quiz>
 <!-- <app-content-quiz class="main-content"></app-content-quiz> -->
 
+</div>

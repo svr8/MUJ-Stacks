@@ -82,8 +82,11 @@ table {
 #question-list tr:first-child{
   cursor: default;
 }
+#question-list td {
+  width: 1000px;
+}
 
-#question-list td:nth-child(3n+1) {  
+/* #question-list td:nth-child(3n+1) {  
   width: 30px;
 }
 #question-list td:nth-child(3n+2) {
@@ -91,7 +94,7 @@ table {
 }
 #question-list td:nth-child(3n+3) {
   width: 300px;
-}
+} */
 
 
 .io {

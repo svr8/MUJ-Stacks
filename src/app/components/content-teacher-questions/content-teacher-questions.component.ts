@@ -59,4 +59,9 @@ export class ContentTeacherQuestionsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onAddNewQuestion() {
+    this.navigateService.editQuestionStatus = false;
+    this.navigateService.switchTarget('add-new-question');
+  }
 }
