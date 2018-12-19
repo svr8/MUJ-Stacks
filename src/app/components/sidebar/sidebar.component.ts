@@ -33,8 +33,10 @@ export class SidebarComponent implements OnInit {
   sidemenu_viewStatus: boolean;
 
   constructor(private user: SignInService) { 
-    this.sidemenu_viewStatus = true;
-    this.showSidemenu();
+    if(window.innerWidth >= 800)
+      this.showSidemenu();
+    else
+      this.hideSidemenu();
   }
 
   ngOnChanges() {
