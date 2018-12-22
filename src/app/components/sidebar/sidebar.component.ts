@@ -142,7 +142,7 @@ export class SidebarComponent implements OnInit {
       this.buttonList = studentbuttonnList;
     let _this = this;
     document.onclick = function(event) {
-      if(event.target.tagName == 'APP-CONTENT-TEACHER-QUIZZES')
+      if((<HTMLInputElement>event.target).value == 'APP-CONTENT-TEACHER-QUIZZES')
         _this.hideSidemenu();
     };
   }
