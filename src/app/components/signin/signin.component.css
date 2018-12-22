@@ -47,9 +47,10 @@ body {
 .register-toggle-wrap {
   position: relative;
   top: 10%;
-  left: 35%;
+  /* left: 35%; */
   width: 15vw;
   height: 1vh;
+  margin: 0 auto;
 
   min-width: 130px;
   min-height: 25px; 
@@ -190,10 +191,10 @@ body {
 
 #register-form-wrap {
   position: relative;
-  top: 20%;
-  left: 20%;
+  top: 16%;
   width: 60%;
   height: 60%;
+  margin: auto auto;
 
   display: flex;
   flex-direction: column;
@@ -210,6 +211,8 @@ body {
 }
 
 #register-form-wrap .inputField {
+  width: 100%;
+
   color: black;
   background: transparent;
   outline: none;

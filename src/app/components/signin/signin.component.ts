@@ -80,10 +80,10 @@ export class SigninComponent implements OnInit {
       anime({
         targets: '#register-form-wrap',
         left: [
-          { value: '20%', duration: 0},
-          { value: '0%', duration: swipe_duration },
-          { value: '80%', duration: swipe_delay },
-          { value: '20%', duration: swipe_duration}
+          { value: '0%', duration: 0},
+          { value: '-20%', duration: swipe_duration },
+          { value: '60%', duration: swipe_delay },
+          { value: '0%', duration: swipe_duration}
         ],
 
         opacity: [
@@ -101,10 +101,10 @@ export class SigninComponent implements OnInit {
       anime({
         targets: '#register-form-wrap',
         left: [
-          { value: '20%', duration: 0},
-          { value: '80%', duration: swipe_duration },
-          { value: '0%', duration: swipe_delay },
-          { value: '20%', duration: swipe_duration}
+          { value: '0%', duration: 0},
+          { value: '60%', duration: swipe_duration },
+          { value: '-20%', duration: swipe_delay },
+          { value: '0%', duration: swipe_duration}
         ],
 
         opacity: [

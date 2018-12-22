@@ -1,4 +1,6 @@
-
+#editorWrap {
+  z-index: 1;
+}
 .editor-container {
   position: relative;
   top: 0px;

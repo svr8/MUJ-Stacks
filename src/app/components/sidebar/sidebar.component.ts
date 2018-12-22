@@ -66,18 +66,23 @@ export class SidebarComponent implements OnInit {
     this.sidemenu_viewStatus = true;
     anime({
       targets: '#sidebar',
-      opacity: [
-        {value: '0', duration: 0},
-        {value: '1', duration: sidebar_fade_duration}
-      ],
       display: [
-        {value: 'none', duration: 0},
-        {value: 'display', duration: 5}
+        {value: 'block', duration: 0},
+        // {value: 'display', duration: sidebar_fade_duration}
       ],
+      width: [
+        {value: '0', duration: 0},
+        {value: '80%', duration: sidebar_fade_duration}
+      ],
+      // opacity: [
+      //   {value: '0', duration: 0},
+      //   {value: '1', duration: sidebar_fade_duration}
+      // ],
+      
     });
     setTimeout(function(){
       let el = document.getElementById('sidebar-toggle');
-      el.style.backgroundImage = "url('../../../assets/images/menu-button-white.png')";
+      // el.style.backgroundImage = "url('../../../assets/images/menu-button-white.png')";
       el = document.getElementById('sidebar');
       el.style.zIndex = '1';
 
@@ -89,10 +94,14 @@ export class SidebarComponent implements OnInit {
 
     anime({
       targets: '#sidebar',
-      opacity: [
-        {value: '1', duration: 0},
-        {value: '0', duration: sidebar_fade_duration}
+      width: [
+        {value: '80%', duration: 0},
+        {value: '0%', duration: sidebar_fade_duration}
       ],
+      // opacity: [
+      //   {value: '1', duration: 0},
+      //   {value: '0', duration: sidebar_fade_duration}
+      // ],
       display: [
         {value: 'display', duration: 0},
         {value: 'none', duration: sidebar_fade_duration}
@@ -101,10 +110,10 @@ export class SidebarComponent implements OnInit {
   
     setTimeout(function(){
       let el = document.getElementById('sidebar-toggle');
-      el.style.backgroundImage = "url('../../../assets/images/menu-button-black.png')";
+      // el.style.backgroundImage = "url('../../../assets/images/menu-button-black.png')";
       el = document.getElementById('sidebar');
       el.style.zIndex = '-1';
-    }, sidebar_fade_duration);
+    }, sidebar_fade_duration+300);
   }
   
 
@@ -131,6 +140,11 @@ export class SidebarComponent implements OnInit {
     
     else if(this.sidebar_type == 'Student') 
       this.buttonList = studentbuttonnList;
+    let _this = this;
+    document.onclick = function(event) {
+      if(event.target.tagName == 'APP-CONTENT-TEACHER-QUIZZES')
+        _this.hideSidemenu();
+    };
   }
 
 }
