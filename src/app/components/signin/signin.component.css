@@ -28,7 +28,7 @@ body {
 }
 
 .register-block {
-  float: left;
+  float: right;
   position: relative;
   height: 100%;
 }
@@ -269,4 +269,13 @@ body {
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: black;
+}
+
+#mobile-marker {
+  display: inline;
+}
+@media only screen and (max-width: 800px) {
+  #mobile-marker {
+    display: block;
+  }
 }

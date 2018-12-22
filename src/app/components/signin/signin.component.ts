@@ -29,6 +29,8 @@ export class SigninComponent implements OnInit {
   signUp_confirmPassword = new FormControl('');
   password_match = false;  
   signUp_accountType = new FormControl('');
+
+  mobStatus: boolean;
   
   public selectSignIn(showFormID, hideFormID) {
     
@@ -156,9 +158,19 @@ export class SigninComponent implements OnInit {
     let uid = localStorage.getItem('uid');
     if(uid && uid!='null' && uid!='undefined')
       this.router.navigate(['']);
+    
+    this.mobStatus = this.isMob();
   }
 
   ngOnInit() {
   }
+
+  isMob(): boolean {
+    if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+      return true;
+    } else {
+      return false;
+    }
+ }
 
 }
