@@ -72,7 +72,7 @@ export class SidebarComponent implements OnInit {
       ],
       width: [
         {value: '0', duration: 0},
-        {value: '80%', duration: sidebar_fade_duration}
+        {value: '100%', duration: sidebar_fade_duration}
       ],
       // opacity: [
       //   {value: '0', duration: 0},
@@ -95,7 +95,7 @@ export class SidebarComponent implements OnInit {
     anime({
       targets: '#sidebar',
       width: [
-        {value: '80%', duration: 0},
+        {value: '100%', duration: 0},
         {value: '0%', duration: sidebar_fade_duration}
       ],
       // opacity: [
@@ -142,8 +142,9 @@ export class SidebarComponent implements OnInit {
       this.buttonList = studentbuttonnList;
     let _this = this;
     document.onclick = function(event) {
-      if((<HTMLInputElement>event.target).value == 'APP-CONTENT-TEACHER-QUIZZES')
-        _this.hideSidemenu();
+      console.log((event.target as HTMLInputElement).value);
+      // if((event.target as HTMLInputElement).value == 'APP-CONTENT-TEACHER-QUIZZES')
+        // _this.hideSidemenu();
     };
   }
 
