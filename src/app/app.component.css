@@ -6,10 +6,10 @@ body {
 @font-face
 {
   font-family: DefaultFont;
-  src: url('./../assets/fonts/KoHo-Regular.ttf');
+  src: url('./../assets/fonts/Nunito-Regular.ttf');
 }
 @font-face
 {
   font-family: DefaultFont-SemiBold;
-  src: url('./../assets/fonts/KoHo-SemiBold.ttf');
+  src: url('./../assets/fonts/Nunito-SemiBold.ttf');
 }
