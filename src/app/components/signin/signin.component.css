@@ -107,7 +107,7 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .register-form-content ul li {
   /* color: #AAAAAA; */
@@ -123,6 +123,11 @@ body {
   visibility: hidden;
 }
 
+#toggle-btn-wrap {
+  position: relative;
+  left: -16%;
+  margin: 0 auto;
+}
 
 .register-form-content ul li label{
   display: block;
@@ -141,7 +146,7 @@ body {
 }
 
 #register-form-signup ul li:nth-child(2) {
-  margin-left: 15px;
+  margin-left: 35px;
 }
 
 .register-form-content ul li:hover label{

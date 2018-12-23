@@ -24,7 +24,7 @@
         <input class="v-item inputField" type="password" placeholder="Confirm Password" [formControl]="signUp_confirmPassword" (input)="checkPasswordMatch()">
         
         <!-- <div class="v-item" id="label_accountType">I am a:</div> -->
-        <ul class="v-item">
+        <ul id="toggle-btn-wrap" class="v-item">
           <li>
             <input type="radio" id="t-option" value="Teacher" [formControl]="signUp_accountType">
             <label for="t-option">Teacher</label>
