@@ -1,5 +1,5 @@
 ## Live Demo
-- Please click on this [link](https://muj-stacks.firebaseapp.com/) to see a live demo.
+- Live demo [here](https://muj-stacks.firebaseapp.com/).
 - Email: demoteacher@gmail.com
 - Password: 123456
 
